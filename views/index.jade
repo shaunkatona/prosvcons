@@ -2,11 +2,17 @@
    Created by shaun.katona on 7/7/2014.
 
 extend layout
+block scripts
+    script(type="text/javascript", src="scripts/index.js")
 block content
     .row.prosAndCons
-        #pros.col-md-5
+        #pros.col-md-5.panel
             h2 Pros
-            input.pros(type="text", placeholder="Add your pro...")
-        #cons.col-md-5.col-md-offset-2
+            ol
+                li
+                    input.pros(type="text", placeholder="Add your pro...")
+        #cons.col-md-5.col-md-offset-2.panel
             h2 Cons
-            input.cons(type="text", placeholder="Add your con...")
+            ol
+                li
+                    input.cons(type="text", placeholder="Add your con...")
