@@ -3,25 +3,26 @@
  */
 
 $(function() {
-    $("input", $("#pros")).focus();
+    $("#pro").focus();
 
-    $("input", $(".prosAndCons")).on("keypress", function (e) {
-        if(e.which == 13) {
-            var $textbox = $(this);
-            var sVal = $.trim($textbox.val());
+    $("#add").on("click", function (e) {
+        var $proOrCon = $(this);
+        var sVal = $.trim($proOrCon.val());
 
-            if (sVal != "") {
-                $textbox.parents("ol").append(
-                    $("<li>").append(
-                        $("<span>").append(sVal),
-                        $("<a>").attr("href", "javascript: void(0);").addClass("delete").append(
-                            $("<span>").addClass("glyphicon glyphicon-trash")
-                        )
+        if (sVal != "") {
+            $proOrCon.parents(".row").append(
+                $("<div>").addClass("col-md-3").append(
+                    sVal,
+                    $("<a>").attr("href", "javascript: void(0);").addClass("delete").append(
+                        $("<span>").addClass("glyphicon glyphicon-trash")
                     )
-                );
+                ),
+                $("<div>").addClass("col-md-1").append(
 
-                $textbox.val("");
-            }
+                )
+            );
+
+            $proOrCon.val("");
         }
     });
 

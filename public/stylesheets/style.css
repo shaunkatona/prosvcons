@@ -1,5 +1,5 @@
 
-/* line 28 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
+/* line 29 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 
 /* line 1 : C:\Users\Shaun\Documents\GitHub\prosvcons\node_modules\stylus\lib\functions\index.styl */
 
@@ -37,9 +37,10 @@ body {
   background: none;
   outline: none;
   box-shadow: none;
+  width: 100%;
 }
 
-/* line 25 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
+/* line 26 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 .prosAndCons .glyphicon {
   font-size: 16px;
   margin-left: 10px;

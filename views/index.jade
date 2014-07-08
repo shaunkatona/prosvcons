@@ -8,11 +8,17 @@ block content
     .row.prosAndCons
         #pros.col-md-5.panel
             h2 Pros
-            ol
-                li
-                    input.pros(type="text", placeholder="Add your pro...")
+            .container
+                    .row
+                        .col-md-3
+                            input#pro(type="text", placeholder="Add your pro...")
+                        .col-md-1
+                            input#proWeight(type="text", placeholder="#")
         #cons.col-md-5.col-md-offset-2.panel
             h2 Cons
-            ol
-                li
-                    input.cons(type="text", placeholder="Add your con...")
+            .container
+                .row
+                    .col-md-3
+                        input#con(type="text", placeholder="Add your con...")
+                    .col-md-1
+                        input#conWeight(type="text", placeholder="#")
