@@ -3,14 +3,20 @@
  */
 var stylus = require('stylus');
 var express = require('express');
+var nib = require('nib');
 var app = express();
 
 app.set('view engine', 'jade');
 app.use(stylus.middleware(
     {
-        src: __dirname + '/public/',
-        dest: __dirname + '/public/stylesheets',
-        linenos: true
+        src: __dirname + '/stylus/',
+        dest: __dirname + '/public/',
+        linenos: true,
+        compile: function (str, path) {
+            return stylus(str)
+                .set('filename', path)
+                .use(nib());
+        }
     }
 ));
 app.use(express.static(__dirname + '/public/'));

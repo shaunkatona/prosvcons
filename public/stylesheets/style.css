@@ -1,35 +1,19 @@
-
-/* line 29 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
-
-/* line 1 : C:\Users\Shaun\Documents\GitHub\prosvcons\node_modules\stylus\lib\functions\index.styl */
-
-/* line 1 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 body {
   padding-top: 70px;
 }
-
-/* line 4 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 #pros {
   background-color: #bfb;
 }
-
-/* line 7 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 #cons {
   background-color: #fbb;
 }
-
-/* line 10 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 .prosAndCons .panel {
   border-radius: 6px;
 }
-
-/* line 13 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 .prosAndCons {
   margin: 0;
   font-size: 24px;
 }
-
-/* line 17 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 .prosAndCons input {
   border: none;
   border-bottom: 1px solid #999;
@@ -39,8 +23,6 @@ body {
   box-shadow: none;
   width: 100%;
 }
-
-/* line 26 : C:\Users\Shaun\Documents\GitHub\prosvcons\public\style.styl */
 .prosAndCons .glyphicon {
   font-size: 16px;
   margin-left: 10px;
