@@ -1,18 +1,29 @@
 body {
   padding-top: 70px;
 }
+ul.nav .glyphicon {
+  font-size: 17px;
+  margin-right: 5px;
+}
 #pros {
   background-color: #bfb;
 }
 #cons {
   background-color: #fbb;
 }
-.prosAndCons .panel {
-  border-radius: 6px;
+h1 a {
+  color: #ccc;
+  font-size: 20px;
+}
+h1 a:hover {
+  text-decoration: none;
+  color: #000;
 }
 .prosAndCons {
   margin: 0;
-  font-size: 24px;
+}
+.prosAndCons .panel {
+  border-radius: 6px;
 }
 .prosAndCons input {
   border: none;
@@ -22,8 +33,9 @@ body {
   outline: none;
   box-shadow: none;
   width: 100%;
+  font-size: 20px;
 }
-.prosAndCons .glyphicon {
+.prosAndCons .glyphicon-trash {
   font-size: 16px;
   margin-left: 10px;
 }

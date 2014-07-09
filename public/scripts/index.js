@@ -3,29 +3,35 @@
  */
 
 $(function() {
+    // start the cursor out on the pro textbox
     $("#pro").focus();
 
-    $("#add").on("click", function (e) {
-        var $proOrCon = $(this);
-        var sVal = $.trim($proOrCon.val());
+    // adding a pro or a con
+    $("#pro, #con").on("keypress", function (e) {
+        if (e.which == 13) {
+            var $proOrCon = $(this);
+            var sVal = $.trim($proOrCon.val());
 
-        if (sVal != "") {
-            $proOrCon.parents(".row").append(
-                $("<div>").addClass("col-md-3").append(
-                    sVal,
-                    $("<a>").attr("href", "javascript: void(0);").addClass("delete").append(
-                        $("<span>").addClass("glyphicon glyphicon-trash")
+            // don't let the user add a blank pro/con
+            if (sVal != "") {
+                $proOrCon.parents(".row").append(
+                    $("<div>").addClass("col-md-3").append(
+                        sVal,
+                        $("<a>").attr("href", "javascript: void(0);").addClass("delete").append(
+                            $("<span>").addClass("glyphicon glyphicon-trash")
+                        )
+                    ),
+                    $("<div>").addClass("col-md-1").append(
+
                     )
-                ),
-                $("<div>").addClass("col-md-1").append(
+                );
 
-                )
-            );
-
-            $proOrCon.val("");
+                $proOrCon.val("");
+            }
         }
     });
 
+    // deleting a pro or a con
     $(".prosAndCons").on("click", "a.delete", function (e) {
         var $lineItem = $(this).closest("li");
         $lineItem.remove();

@@ -5,7 +5,9 @@ doctype html5
 html
     head
         title Pros v Cons
-        link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+        //link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="stylesheets/bootstrap/bootstrap.min.css")
+        link(rel="stylesheet", href="stylesheets/bootstrap/bootstrap-theme.min.css")
         link(rel="stylesheet", href="stylesheets/style.css")
         meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
     body(role="document")
@@ -26,6 +28,29 @@ html
                             a(href="/about") About
                         li
                             a(href="/contact") Contact
+                    ul.nav.navbar-nav.navbar-right
+                        li.dropdown
+                            a.dropdown-toggle(data-toggle="dropdown", href="javascript: void(0);")
+                                .glyphicon.glyphicon-th-list
+                                | My Lists
+                                span.caret
+                            ul.dropdown-menu(role="menu")
+                                li.dropdown-header
+                                    | Public
+                                li
+                                    a(href="javascript: void(0);") List #1
+                                li
+                                    a(href="javascript: void(0);") List #2
+                                li
+                                    a(href="javascript: void(0);") List #3
+                                li.divider
+                                li.dropdown-header
+                                    | Private
+                                    li
+                                        a(href="javascript: void(0);") List #4
+                                    li
+                                        a(href="javascript: void(0);") List #5
+
         .container(role="main")
             .jumbotron
                 h1 Pros v Cons

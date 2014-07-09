@@ -5,20 +5,38 @@ extend layout
 block scripts
     script(type="text/javascript", src="scripts/index.js")
 block content
+    .row
+        h1.text-center
+            | Add a title...
+            a(href="javascript: void(0);").glyphicon.glyphicon-pencil
     .row.prosAndCons
         #pros.col-md-5.panel
-            h2 Pros
-            .container
-                    .row
-                        .col-md-3
+            table.table
+                thead
+                    tr
+                        th Pros
+                        th Weight
+                tbody
+                    tr
+                        th
                             input#pro(type="text", placeholder="Add your pro...")
-                        .col-md-1
-                            input#proWeight(type="text", placeholder="#")
+                        th
+                            a(href="javascript: void(0);").glyphicon.glyphicon-plus
+                            span.proWeight 0
+                            a(href="javascript: void(0);").glyphicon.glyphicon-minus
+                tfoot
         #cons.col-md-5.col-md-offset-2.panel
-            h2 Cons
-            .container
-                .row
-                    .col-md-3
-                        input#con(type="text", placeholder="Add your con...")
-                    .col-md-1
-                        input#conWeight(type="text", placeholder="#")
+            table.table
+                thead
+                    tr
+                        th Cons
+                        th Weight
+                tbody
+                    tr
+                        th
+                            input#con(type="text", placeholder="Add your con...")
+                        th
+                            a(href="javascript: void(0);").glyphicon.glyphicon-plus
+                            span.conWeight 0
+                            a(href="javascript: void(0);").glyphicon.glyphicon-minus
+                tfoot
