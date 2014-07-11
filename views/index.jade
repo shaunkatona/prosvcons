@@ -3,13 +3,14 @@
 
 extend layout
 block scripts
+    script(type="text/javascript", src="scripts/app.js")
     script(type="text/javascript", src="scripts/index.js")
 block content
     .row
         h1.text-center
             | Add a title...
             a(href="javascript: void(0);").glyphicon.glyphicon-pencil
-    .row.prosAndCons
+    .row.prosAndCons(ng-app="ProsVCons")
         #pros.col-md-5.panel
             table.table
                 thead
@@ -17,13 +18,13 @@ block content
                         th Pros
                         th Weight
                 tbody
-                    tr
+                    tr(ng-controller="ProController as ProCtrl")
                         th
-                            input#pro(type="text", placeholder="Add your pro...")
+                            input#pro(type="text", placeholder="Add your pro...", ng-model="ProCtrl.description")
                         th
-                            a(href="javascript: void(0);").glyphicon.glyphicon-plus
-                            span.proWeight 0
-                            a(href="javascript: void(0);").glyphicon.glyphicon-minus
+                            a(href="javascript: void(0);" ng-click="ProCtrl.incrementWeight()").glyphicon.glyphicon-plus
+                            span.proWeight {{ProCtrl.weight}}
+                            a(href="javascript: void(0);" ng-click="ProCtrl.decrementWeight()").glyphicon.glyphicon-minus
                 tfoot
         #cons.col-md-5.col-md-offset-2.panel
             table.table
@@ -32,11 +33,11 @@ block content
                         th Cons
                         th Weight
                 tbody
-                    tr
+                    tr(ng-controller="ConController as ConCtrl")
                         th
-                            input#con(type="text", placeholder="Add your con...")
+                            input#con(type="text", placeholder="Add your con...", ng-model="ConCtrl.description")
                         th
-                            a(href="javascript: void(0);").glyphicon.glyphicon-plus
-                            span.conWeight 0
-                            a(href="javascript: void(0);").glyphicon.glyphicon-minus
+                            a(href="javascript: void(0);" ng-click="ConCtrl.incrementWeight()").glyphicon.glyphicon-plus
+                            span.conWeight {{ConCtrl.weight}}
+                            a(href="javascript: void(0);" ng-click="ConCtrl.decrementWeight()").glyphicon.glyphicon-minus
                 tfoot
