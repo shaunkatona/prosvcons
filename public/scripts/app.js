@@ -4,7 +4,7 @@
 (function () {
     var app = angular.module('ProsVCons', []);
 
-    app.controller('AppController', function () {
+    app.controller('AppController', function ($scope) {
         this.showWeights = false;
         this.currentPro = {
             description: "",
@@ -34,25 +34,33 @@
         };
 
         this.removePro = function (index) {
-            this.currentPro.splice(index, 1);
+            this.pros.splice(index, 1);
         };
 
-        this.savePro = function (pro) {
-            this.pros.push(pro);
+        this.removeCon = function (index) {
+            this.cons.splice(index, 1);
+        };
+
+        this.savePro = function () {
+            this.pros.push(this.currentPro);
 
             this.currentPro = {
                 description: "",
                 weight: 0
             };
+
+            $scope.proForm.$setPristine();
         }
 
-        this.saveCon = function (con) {
-            this.cons.push(con);
+        this.saveCon = function () {
+            this.cons.push(this.currentCon);
 
             this.currentCon = {
                 description: "",
                 weight: 0
             };
+
+            $scope.conForm.$setPristine();
         }
     });
 })();
