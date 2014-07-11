@@ -10,18 +10,22 @@ block content
         h1.text-center
             | Add a title...
             a(href="javascript: void(0);").glyphicon.glyphicon-pencil
-    .row.prosAndCons(ng-app="ProsVCons")
+        div.checkbox
+            label
+                input(type="checkbox" ng-model="AppCtrl.showWeight")
+                | Show Weights
+    .row.prosAndCons
         #pros.col-md-5.panel
             table.table
                 thead
                     tr
                         th Pros
-                        th Weight
+                        th(ng-show="AppCtrl.showWeight") Weight
                 tbody
                     tr(ng-controller="ProController as ProCtrl")
                         th
                             input#pro(type="text", placeholder="Add your pro...", ng-model="ProCtrl.description")
-                        th
+                        th(ng-show="AppCtrl.showWeight")
                             a(href="javascript: void(0);" ng-click="ProCtrl.incrementWeight()").glyphicon.glyphicon-plus
                             span.proWeight {{ProCtrl.weight}}
                             a(href="javascript: void(0);" ng-click="ProCtrl.decrementWeight()").glyphicon.glyphicon-minus
@@ -31,12 +35,12 @@ block content
                 thead
                     tr
                         th Cons
-                        th Weight
+                        th(ng-show="AppCtrl.showWeight") Weight
                 tbody
                     tr(ng-controller="ConController as ConCtrl")
                         th
                             input#con(type="text", placeholder="Add your con...", ng-model="ConCtrl.description")
-                        th
+                        th(ng-show="AppCtrl.showWeight")
                             a(href="javascript: void(0);" ng-click="ConCtrl.incrementWeight()").glyphicon.glyphicon-plus
                             span.conWeight {{ConCtrl.weight}}
                             a(href="javascript: void(0);" ng-click="ConCtrl.decrementWeight()").glyphicon.glyphicon-minus

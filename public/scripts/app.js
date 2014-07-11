@@ -4,6 +4,12 @@
 (function () {
     var app = angular.module('ProsVCons', []);
 
+    app.controller('AppController', function () {
+        this.showWeight = false;
+        this.pros = [];
+        this.cons = [];
+    });
+
     app.controller('ProController', function () {
         this.description = "";
         this.weight = 0;

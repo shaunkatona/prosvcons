@@ -10,7 +10,7 @@ html
         link(rel="stylesheet", href="stylesheets/bootstrap/bootstrap-theme.min.css")
         link(rel="stylesheet", href="stylesheets/style.css")
         meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
-    body(role="document")
+    body(role="document", ng-app="ProsVCons")
         .navbar.navbar-inverse.navbar-fixed-top(role="navigation")
             .container
                 .navbar-header
@@ -51,7 +51,7 @@ html
                                     li
                                         a(href="javascript: void(0);") List #5
 
-        .container(role="main")
+        .container(role="main", ng-controller="AppController as AppCtrl")
             .jumbotron
                 h1 Pros v Cons
                 p A quick, easy tool to weigh your options!
