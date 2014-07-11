@@ -12,7 +12,7 @@ block content
             a(href="javascript: void(0);").glyphicon.glyphicon-pencil
         div.checkbox
             label
-                input(type="checkbox" ng-model="AppCtrl.showWeight")
+                input(type="checkbox" ng-model="AppCtrl.showWeights")
                 | Show Weights
     .row.prosAndCons
         #pros.col-md-5.panel
@@ -20,28 +20,42 @@ block content
                 thead
                     tr
                         th Pros
-                        th(ng-show="AppCtrl.showWeight") Weight
+                        th(ng-show="AppCtrl.showWeights") Weight
                 tbody
-                    tr(ng-controller="ProController as ProCtrl")
+                    tr
                         th
-                            input#pro(type="text", placeholder="Add your pro...", ng-model="ProCtrl.description")
-                        th(ng-show="AppCtrl.showWeight")
-                            a(href="javascript: void(0);" ng-click="ProCtrl.incrementWeight()").glyphicon.glyphicon-plus
-                            span.proWeight {{ProCtrl.weight}}
-                            a(href="javascript: void(0);" ng-click="ProCtrl.decrementWeight()").glyphicon.glyphicon-minus
+                            input#pro(type="text", placeholder="Add your pro...", ng-model="AppCtrl.currentPro.description")
+                        th(ng-show="AppCtrl.showWeights")
+                            a(href="javascript: void(0);" ng-click="AppCtrl.incrementProWeight()").glyphicon.glyphicon-plus
+                            span.proWeight {{AppCtrl.currentPro.weight}}
+                            a(href="javascript: void(0);" ng-click="AppCtrl.decrementProWeight()").glyphicon.glyphicon-minus
+                    tr(ng-repeat="pro in AppCtrl.pros")
+                        th
+                            {{pro.description}}
+                            a(href="javascript: void(0);" ng-click="AppCtrl.removePro($index)")
+                                span.glyph.glyphicon-trash
+                        th(ng-show="AppCtrl.showWeights")
+                            {{pro.weight}}
                 tfoot
         #cons.col-md-5.col-md-offset-2.panel
             table.table
                 thead
                     tr
                         th Cons
-                        th(ng-show="AppCtrl.showWeight") Weight
+                        th(ng-show="AppCtrl.showWeights") Weight
                 tbody
-                    tr(ng-controller="ConController as ConCtrl")
+                    tr
                         th
-                            input#con(type="text", placeholder="Add your con...", ng-model="ConCtrl.description")
-                        th(ng-show="AppCtrl.showWeight")
-                            a(href="javascript: void(0);" ng-click="ConCtrl.incrementWeight()").glyphicon.glyphicon-plus
-                            span.conWeight {{ConCtrl.weight}}
-                            a(href="javascript: void(0);" ng-click="ConCtrl.decrementWeight()").glyphicon.glyphicon-minus
+                            input#con(type="text", placeholder="Add your con...", ng-model="AppCtrl.currentCon.description")
+                        th(ng-show="AppCtrl.showWeights")
+                            a(href="javascript: void(0);" ng-click="AppCtrl.incrementConWeight()").glyphicon.glyphicon-plus
+                            span.conWeight {{AppCtrl.currentCon.weight}}
+                            a(href="javascript: void(0);" ng-click="AppCtrl.decrementConWeight()").glyphicon.glyphicon-minus
+                    tr(ng-repeat="con in AppCtrl.cons")
+                        th
+                            {{con.description}}
+                            a(href="javascript: void(0);" ng-click="AppCtrl.removeCon($index)")
+                                span.glyph.glyphicon-trash
+                        th(ng-show="AppCtrl.showWeights")
+                            {{con.weight}}
                 tfoot
