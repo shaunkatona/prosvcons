@@ -7,13 +7,20 @@ block scripts
     script(type="text/javascript", src="scripts/index.js")
 block content
     .row
-        h1.text-center
-            | Add a title...
-            a(href="javascript: void(0);").glyphicon.glyphicon-pencil
-        div.checkbox
-            label
-                input(type="checkbox" ng-model="AppCtrl.showWeights")
-                | Show Weights
+        form(name="titleForm", ng-submit="AppCtrl.saveTitle")
+            h1.text-center
+                .titleTextWrapper(ng-hide="AppCtrl.showTitleInput")
+                    span Add a title...
+                    a(href="javascript: void(0);", ng-click="AppCtrl.toggleTitleInput()").glyphicon.glyphicon-pencil
+                .titleInputWrapper(ng-show="AppCtrl.showTitleInput")
+                    input(type="text", ng-model="AppCtrl.title")
+                    a(href="javascript: void(0);", ng-click="AppCtrl.toggleTitleInput()").glyphicon.glyphicon-remove
+                        | cancel
+
+            div.checkbox
+                label
+                    input(type="checkbox", ng-model="AppCtrl.showWeights")
+                    | Show Weights
     .row.prosAndCons
         #pros.col-md-5.panel
             form(name="proForm", ng-submit="proForm.$valid && AppCtrl.savePro()" novalidate)
@@ -33,7 +40,7 @@ block content
                         tr(ng-repeat="pro in AppCtrl.pros")
                             th
                                 {{pro.description}}
-                                a(href="javascript: void(0);" ng-click="AppCtrl.removePro($index)")
+                                a(href="javascript: void(0);", ng-click="AppCtrl.removePro($index)")
                                     span.glyphicon.glyphicon-trash
                             th(ng-show="AppCtrl.showWeights")
                                 {{pro.weight}}

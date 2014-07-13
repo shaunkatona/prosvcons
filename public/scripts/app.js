@@ -16,6 +16,11 @@
         };
         this.pros = [];
         this.cons = [];
+        this.showTitleInput = false;
+
+        this.toggleTitleInput = function () {
+            this.showTitleInput = !this.showTitleInput;
+        }
 
         this.incrementProWeight = function () {
             this.currentPro.weight++;
