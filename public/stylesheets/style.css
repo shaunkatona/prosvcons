@@ -19,6 +19,13 @@ h1 a:hover {
   text-decoration: none;
   color: #000;
 }
+.ng-dirty.ng-invalid {
+  border-color: #f00;
+}
+input[type="text"] {
+  box-shadow: none;
+  outline: none;
+}
 .prosAndCons {
   margin: 0;
 }
@@ -31,9 +38,6 @@ h1 a:hover {
   font-size: 20px;
   box-shadow: none;
   outline: none;
-}
-.prosAndCons input.ng-dirty.ng-invalid {
-  border-color: #f00;
 }
 .prosAndCons .glyphicon-trash {
   font-size: 16px;

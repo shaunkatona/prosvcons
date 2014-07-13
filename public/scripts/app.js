@@ -2,6 +2,10 @@
  * Created by shaunkatona on 7/10/14.
  */
 (function () {
+    var isWhitespace = function (text) {
+      return $.trim(text).length == 0;
+    };
+
     var app = angular.module('ProsVCons', []);
 
     app.controller('AppController', function ($scope) {
@@ -16,10 +20,32 @@
         };
         this.pros = [];
         this.cons = [];
-        this.showTitleInput = false;
+        this.titleInputVisible = false;
+        this.DEFAULT_TITLE = "Add a title...";
+        this.title = this.DEFAULT_TITLE;
+        this.prevTitle = this.title;
 
-        this.toggleTitleInput = function () {
-            this.showTitleInput = !this.showTitleInput;
+        this.saveTitle = function () {
+            if (isWhitespace(this.title)) {
+                $("#titleInput").addClass("ng-invalid");
+            } else {
+                this.titleInputVisible = false;
+                this.prevTitle = this.title;
+            }
+        }
+
+        this.cancelTitleInput = function () {
+            this.titleInputVisible = false;
+            this.title = this.prevTitle;
+            $("#titleInput").removeClass("ng-invalid");
+        }
+
+        this.showTitleInput = function () {
+            this.titleInputVisible = true;
+
+            setTimeout(function () {
+                $("#titleInput").select();
+            }, 0);
         }
 
         this.incrementProWeight = function () {
