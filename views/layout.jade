@@ -55,9 +55,13 @@ html
                                         a(href="javascript: void(0);") List #5
 
         .container(role="main", ng-controller="AppController as AppCtrl")
-            .jumbotron
-                h1 Pros v Cons
-                p A quick, easy tool to weigh your options!
+            .jumbotron.clearfix
+                .pull-left
+                    h1 Pros v Cons
+                    p A quick, easy tool to weigh your options!
+                .pull-left
+                    .glyphicon.glyphicon-thumbs-up
+                    .glyphicon.glyphicon-thumbs-down
             block content
             footer.footer
                 | This site created by&nbsp;
