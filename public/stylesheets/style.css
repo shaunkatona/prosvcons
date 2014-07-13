@@ -23,6 +23,9 @@ h1 a:hover {
   text-decoration: none;
   color: #000;
 }
+table thead th {
+  font-size: 25px;
+}
 .ng-dirty.ng-invalid {
   border-color: #f00;
 }
