@@ -7,22 +7,24 @@ block scripts
     script(type="text/javascript", src="scripts/index.js")
 block content
     .row
-        form(name="titleForm", ng-submit="AppCtrl.saveTitle()" novalidate)
-            h1.text-center
-                .titleTextWrapper(ng-hide="AppCtrl.titleInputVisible")
-                    span {{AppCtrl.title}}
-                    a(href="javascript: void(0);", ng-click="AppCtrl.showTitleInput()").glyphicon.glyphicon-pencil
-                .titleInputWrapper(ng-show="AppCtrl.titleInputVisible")
-                    input(id="titleInput", name="titleInput", type="text", ng-model="AppCtrl.title")
-                    a(href="javascript: void(0);", ng-click="AppCtrl.cancelTitleInput()").glyphicon.glyphicon-remove
-                        | cancel
+        .col-sm-12
+            form(name="titleForm", ng-submit="AppCtrl.saveTitle()" novalidate)
+                h1.text-center
+                    .titleTextWrapper(ng-hide="AppCtrl.titleInputVisible")
+                        span {{AppCtrl.title}}
+                        a(href="javascript: void(0);", ng-click="AppCtrl.showTitleInput()").glyphicon.glyphicon-pencil
+                    .titleInputWrapper(ng-show="AppCtrl.titleInputVisible")
+                        input(id="titleInput", name="titleInput", type="text", ng-model="AppCtrl.title")
+                        a(href="javascript: void(0);", ng-click="AppCtrl.cancelTitleInput()").cancelTitle
+                            .glyphicon.glyphicon-remove
+                            | cancel
 
-            div.checkbox
-                label
-                    input(type="checkbox", ng-model="AppCtrl.showWeights")
-                    | Show Weights
+                div.checkbox
+                    label
+                        input(type="checkbox", ng-model="AppCtrl.showWeights")
+                        | Show Weights
     .row.prosAndCons
-        #pros.col-md-5.panel
+        #pros.col-sm-5.panel
             form(name="proForm", ng-submit="proForm.$valid && AppCtrl.savePro()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
 
@@ -45,7 +47,7 @@ block content
                             th(ng-show="AppCtrl.showWeights")
                                 {{pro.weight}}
 
-        #cons.col-md-5.col-md-offset-2.panel
+        #cons.col-sm-5.col-sm-offset-2.panel
             form(name="conForm", ng-submit="conForm.$valid && AppCtrl.saveCon()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
 

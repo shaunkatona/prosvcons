@@ -1,6 +1,10 @@
 body {
   padding-top: 70px;
 }
+.dropdown .badge {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 ul.nav .glyphicon {
   font-size: 17px;
   margin-right: 5px;
@@ -25,6 +29,7 @@ h1 a:hover {
 input[type="text"] {
   box-shadow: none;
   outline: none;
+  width: 100%;
 }
 .prosAndCons {
   margin: 0;
@@ -42,4 +47,13 @@ input[type="text"] {
 .prosAndCons .glyphicon-trash {
   font-size: 16px;
   margin-left: 10px;
+}
+a.cancelTitle {
+  font-size: 15px;
+}
+a.cancelTitle .glyphicon-remove {
+  padding-right: 5px;
+}
+a.glyphicon-pencil {
+  margin-left: 5px;
 }
