@@ -21,7 +21,7 @@ app.use(stylus.middleware(
         }
     }
 ));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // required to run req.body in app.post()
 app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function (req, res) {
@@ -29,16 +29,15 @@ app.get('/', function (req, res) {
         db = mongojs.connect(uri, ["lists"]);
 
     db.lists.find({}, function (error, lists) {
-        if (error) {
+        if (error || !lists) {
             console.log(error);
 
-            res.render("index.jade", {'myLists': lists});
+            lists = [];
         } else {
-            res.render("index.jade", {'myLists': lists});
         }
+
+        res.render("index.jade", {'myLists': lists});
     });
-
-
 });
 
 app.get('/about', function (req, res) {
