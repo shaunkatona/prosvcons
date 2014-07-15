@@ -4,7 +4,6 @@
 extend layout
 block scripts
     script(type="text/javascript", src="scripts/app.js")
-    script(type="text/javascript", src="scripts/index.js")
 block content
     .row
         .col-sm-12
@@ -41,11 +40,11 @@ block content
                                 input(type="number", ng-model="AppCtrl.currentPro.weight", min="0", max="100").proWeight
                         tr(ng-repeat="pro in AppCtrl.pros")
                             th
-                                {{pro.description}}
+                                | {{pro.description}}
                                 a(href="javascript: void(0);", ng-click="AppCtrl.removePro($index)")
                                     span.glyphicon.glyphicon-trash
                             th(ng-show="AppCtrl.showWeights")
-                                {{pro.weight}}
+                                | {{pro.weight}}
 
         #cons.col-sm-5.col-sm-offset-2.panel
             form(name="conForm", ng-submit="conForm.$valid && AppCtrl.saveCon()" novalidate)
@@ -64,8 +63,12 @@ block content
                                 input(type="number", ng-model="AppCtrl.currentCon.weight", min="0", max="100").conWeight
                         tr(ng-repeat="con in AppCtrl.cons")
                             th
-                                {{con.description}}
+                                | {{con.description}}
                                 a(href="javascript: void(0);" ng-click="AppCtrl.removeCon($index)")
                                     span.glyphicon.glyphicon-trash
                             th(ng-show="AppCtrl.showWeights")
-                                {{con.weight}}
+                                | {{con.weight}}
+    .row
+        .col-sm-12.text-center
+            button.btn-lg.btn-primary(ng-click="AppCtrl.saveList()")
+                | Save!

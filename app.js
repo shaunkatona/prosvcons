@@ -4,6 +4,7 @@
 var stylus = require('stylus');
 var express = require('express');
 var nib = require('nib');
+var bodyParser = require('body-parser');
 var app = express();
 
 app.set('view engine', 'jade');
@@ -19,6 +20,7 @@ app.use(stylus.middleware(
         }
     }
 ));
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function (req, res) {
@@ -31,6 +33,10 @@ app.get('/about', function (req, res) {
 
 app.get('/contact', function (req, res) {
     res.render("contact.jade");
+});
+
+app.post('/save', function (req, res) {
+    console.log(req.body);
 });
 
 app.listen(8080);

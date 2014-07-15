@@ -8,7 +8,7 @@
 
     var app = angular.module('ProsVCons', []);
 
-    app.controller('AppController', function ($scope) {
+    app.controller('AppController', function ($scope, $http) {
         this.showWeights = false;
         this.currentPro = {
             description: "",
@@ -25,6 +25,14 @@
         this.title = this.DEFAULT_TITLE;
         this.prevTitle = this.title;
 
+        this.saveList = function () {
+            $http.post("/save", {
+                title: this.title,
+                pros: this.pros,
+                cons: this.cons
+            });
+        };
+
         this.saveTitle = function () {
             if (isWhitespace(this.title)) {
                 $("#titleInput").addClass("ng-invalid");
@@ -32,13 +40,13 @@
                 this.titleInputVisible = false;
                 this.prevTitle = this.title;
             }
-        }
+        };
 
         this.cancelTitleInput = function () {
             this.titleInputVisible = false;
             this.title = this.prevTitle;
             $("#titleInput").removeClass("ng-invalid");
-        }
+        };
 
         this.showTitleInput = function () {
             this.titleInputVisible = true;
@@ -46,7 +54,7 @@
             setTimeout(function () {
                 $("#titleInput").select();
             }, 0);
-        }
+        };
 
         this.incrementProWeight = function () {
             this.currentPro.weight++;
