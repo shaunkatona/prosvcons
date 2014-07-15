@@ -30,6 +30,11 @@ h1 a:hover {
 .jumbotron .glyphicon.glyphicon-thumbs-up {
   margin-left: 100px;
 }
+@media only screen and (min-width: 0px) and (max-width: 992px) {
+  .jumbotron .glyphicon {
+    display: none;
+  }
+}
 table thead th {
   font-size: 25px;
 }
