@@ -5,6 +5,7 @@ var stylus = require('stylus');
 var express = require('express');
 var nib = require('nib');
 var bodyParser = require('body-parser');
+var mongojs = require('mongojs');
 var app = express();
 
 app.set('view engine', 'jade');
@@ -24,7 +25,20 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public/'));
 
 app.get('/', function (req, res) {
-    res.render("index.jade");
+    var uri = "mongodb://nodejitsu:471dcfb59e0a68ffbadeb9a39ee694bf@troup.mongohq.com:10048/nodejitsudb6749814886",
+        db = mongojs.connect(uri, ["lists"]);
+
+    db.lists.find({}, function (error, lists) {
+        if (error) {
+            console.log(error);
+
+            res.render("index.jade", {'myLists': lists});
+        } else {
+            res.render("index.jade", {'myLists': lists});
+        }
+    });
+
+
 });
 
 app.get('/about', function (req, res) {
@@ -37,6 +51,19 @@ app.get('/contact', function (req, res) {
 
 app.post('/save', function (req, res) {
     console.log(req.body);
+
+    var uri = "mongodb://nodejitsu:471dcfb59e0a68ffbadeb9a39ee694bf@troup.mongohq.com:10048/nodejitsudb6749814886",
+        db = mongojs.connect(uri, ["lists"]);
+
+    db.lists.save({
+        title: req.body.title
+    }, function (error, value) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(value);
+        }
+    });
 });
 
 app.listen(8080);
