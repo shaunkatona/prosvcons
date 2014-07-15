@@ -17,3 +17,4 @@ To-do
 - Clicking on a saved list from the top dropdown to load the list
 - Add a Delete button next to Save, to delete saved lists
 - User creation/authentication so everyone has their own lists
+- Refactor the Angular controller to be more modular.  Duplicate code for pros and cons is no good.
