@@ -8,32 +8,29 @@ block content
     .row
         .col-sm-12
             form(name="titleForm", ng-submit="saveTitle()" novalidate)
-                h1.text-center
+                header.text-center
                     .titleTextWrapper(ng-hide="titleInputVisible")
-                        span {{title || DEFAULT_TITLE}}
+                        h1 {{title || DEFAULT_TITLE}}
                         a(href="javascript: void(0);", ng-click="showTitleInput()").glyphicon.glyphicon-pencil
                     .titleInputWrapper(ng-show="titleInputVisible")
-                        input(id="titleInput", name="titleInput", type="text", ng-model="title", placeholder="Add a title...")
+                        input.text-center.form-control.input-lg(id="titleInput", name="titleInput", type="text", ng-model="title", placeholder="Add a title...")
                         a(href="javascript: void(0);", ng-click="cancelTitleInput()").cancelTitle
                             .glyphicon.glyphicon-remove
                             | cancel
-                    .col-sm-offset-4.alert.alert-danger.alert-dismissable.titleErrorMsg.text-center(ng-show="showTitleErrorMsg", role="alert")
-                        button(type="button", class="close", ng-click="showTitleErrorMsg = false")
-                            span(aria-hidden="true") &times;
-                            span.sr-only Close
-                        | Please enter a title for this list!
+                    .col-sm-offset-3.col-sm-6
+                        .alert.alert-danger.alert-dismissable.titleErrorMsg.text-center(ng-show="showTitleErrorMsg", role="alert")
+                            button(type="button", class="close", ng-click="showTitleErrorMsg = false")
+                                span(aria-hidden="true") &times;
+                                span.sr-only Close
+                            | Please enter a title for this list!
 
-                div.checkbox
-                    label
-                        input(type="checkbox", ng-model="showWeights")
-                        | Show Weights
-    .row.prosAndCons
+    .row
         .col-sm-12
-            .col-sm-offset-4.alert.alert-danger.alert-dismissable.text-center(ng-show="showEmptyErrorMsg", role="alert")
-                button(type="button", class="close", ng-click="showEmptyErrorMsg = false")
-                    span(aria-hidden="true") &times;
-                    span.sr-only Close
-                | Please enter pros or cons to this list!
+            div.checkbox
+                label
+                    input(type="checkbox", ng-model="showWeights")
+                    | Show Weights
+    .row.prosAndCons
         #pros.col-sm-5.panel
             form(name="proForm", ng-submit="proForm.$valid && savePro()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
@@ -46,15 +43,15 @@ block content
                     tbody
                         tr
                             th
-                                input#pro(type="text", placeholder="Add your pro...", ng-model="currentPro.description", required)
+                                input.form-control#pro(type="text", placeholder="Add your pro...", ng-model="currentPro.description", required)
                             th(ng-show="showWeights")
-                                input(type="number", ng-model="currentPro.weight", min="0", max="100").proWeight
+                                input.form-control.text-right(type="number", ng-model="currentPro.weight", min="0", max="100").proWeight
                         tr(ng-repeat="pro in pros")
                             th
                                 | {{pro.description}}
                                 a(href="javascript: void(0);", ng-click="removePro($index)")
                                     span.glyphicon.glyphicon-trash
-                            th(ng-show="showWeights")
+                            th.text-right(ng-show="showWeights")
                                 | {{pro.weight}}
 
         #cons.col-sm-5.col-sm-offset-2.panel
@@ -69,16 +66,24 @@ block content
                     tbody
                         tr
                             th
-                                input#con(type="text", placeholder="Add your con...", ng-model="currentCon.description", required)
+                                input.form-control#con(type="text", placeholder="Add your con...", ng-model="currentCon.description", required)
                             th(ng-show="showWeights")
-                                input(type="number", ng-model="currentCon.weight", min="0", max="100").conWeight
+                                input.form-control.text-right(type="number", ng-model="currentCon.weight", min="0", max="100").conWeight
                         tr(ng-repeat="con in cons")
                             th
                                 | {{con.description}}
                                 a(href="javascript: void(0);" ng-click="removeCon($index)")
                                     span.glyphicon.glyphicon-trash
-                            th(ng-show="showWeights")
+                            th.text-right(ng-show="showWeights")
                                 | {{con.weight}}
+    .row
+        .col-sm-offset-3.col-sm-6
+            .alert.alert-danger.alert-dismissable.text-center(ng-show="showEmptyErrorMsg", role="alert")
+                button(type="button", class="close", ng-click="showEmptyErrorMsg = false")
+                    span(aria-hidden="true") &times;
+                    span.sr-only Close
+                | Please enter pros or cons to this list!
+        .col-sm-3
     .row
         .col-sm-12.text-center
             button.btn-lg.btn-primary(ng-click="saveList()")

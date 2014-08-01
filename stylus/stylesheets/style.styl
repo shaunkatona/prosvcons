@@ -1,81 +1,88 @@
 body
   padding-top 70px
 
-.dropdown
-  & .badge
-    margin-left 5px
-    margin-right 5px
-
-ul.nav .glyphicon
-  font-size 17px
-  margin-right 5px
-
-#pros
-  background-color #bfb
-
-#cons
-  background-color #fbb
-
-h1 a
-  color #ccc
-  font-size 20px
-
-h1 a:hover
-  text-decoration none
-  color black
-
-.jumbotron
-  .glyphicon
-    font-size 100px
-    margin-left 50px
-
-    &.glyphicon-thumbs-up
-      margin-left 100px
-
-@media only screen and (min-width: 0px) and (max-width: 992px)
   .jumbotron
     .glyphicon
       display none
 
-table
-  thead
-    th
-      font-size 25px
+  .dropdown
+    .badge
+      margin-left 5px
+      margin-right 5px
 
-.ng-dirty.ng-invalid
-  border-color red
+  header
+    h1
+      display inline-block
+    a
+      color #ccc
+      font-size 20px
+    a:hover
+      text-decoration none
+      color black
 
-input[type="text"]
-  box-shadow none
-  outline none
-  width 100%
+  #pros
+    background-color #bfb
 
-.prosAndCons
-  margin 0
+  #cons
+    background-color #fbb
 
-  .panel
-    border-radius 6px
+  ul.nav
+    .glyphicon
+      margin-right 5px
 
-  input
-    font-style italic
-    width 100%
+  a.cancelTitle
+    font-size 15px
+
+    .glyphicon-remove
+      padding-right 5px
+
+  a.glyphicon-pencil
+    margin-left 5px
+
+  .input-lg
+    font-size 30px
+
+@media only screen and (min-width: 992px)
+  div.alert
     font-size 20px
+
+  .jumbotron
+    .glyphicon
+      display inline-block
+
+  header
+    font-size 34px
+
+    input.form-control
+      font-size 34px
+
+  .jumbotron
+    .glyphicon
+      font-size 100px
+      margin-left 50px
+
+      &.glyphicon-thumbs-up
+        margin-left 100px
+
+  table
+    thead
+      th
+        font-size 25px
+
+  .ng-dirty.ng-invalid
+    border-color red
+
+  input[type="text"]
     box-shadow none
     outline none
-    
-  .glyphicon-trash
-    font-size 16px
-    margin-left 10px
+    width 100%
 
-a.cancelTitle
-  font-size 15px
+  .prosAndCons
+    margin 0
 
-  .glyphicon-remove
-    padding-right 5px
+    .panel
+      border-radius 6px
 
-a.glyphicon-pencil
-  margin-left 5px
-
-div.alert
-  width 35%
-  font-size 20px
+    .glyphicon-trash
+      font-size 16px
+      margin-left 10px

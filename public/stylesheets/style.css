@@ -1,78 +1,84 @@
 body {
   padding-top: 70px;
 }
-.dropdown .badge {
+body .jumbotron .glyphicon {
+  display: none;
+}
+body .dropdown .badge {
   margin-left: 5px;
   margin-right: 5px;
 }
-ul.nav .glyphicon {
-  font-size: 17px;
-  margin-right: 5px;
+body header h1 {
+  display: inline-block;
 }
-#pros {
-  background-color: #bfb;
-}
-#cons {
-  background-color: #fbb;
-}
-h1 a {
+body header a {
   color: #ccc;
   font-size: 20px;
 }
-h1 a:hover {
+body header a:hover {
   text-decoration: none;
   color: #000;
 }
-.jumbotron .glyphicon {
-  font-size: 100px;
-  margin-left: 50px;
+body #pros {
+  background-color: #bfb;
 }
-.jumbotron .glyphicon.glyphicon-thumbs-up {
-  margin-left: 100px;
+body #cons {
+  background-color: #fbb;
 }
-@media only screen and (min-width: 0px) and (max-width: 992px) {
-  .jumbotron .glyphicon {
-    display: none;
-  }
+body ul.nav .glyphicon {
+  margin-right: 5px;
 }
-table thead th {
-  font-size: 25px;
-}
-.ng-dirty.ng-invalid {
-  border-color: #f00;
-}
-input[type="text"] {
-  box-shadow: none;
-  outline: none;
-  width: 100%;
-}
-.prosAndCons {
-  margin: 0;
-}
-.prosAndCons .panel {
-  border-radius: 6px;
-}
-.prosAndCons input {
-  font-style: italic;
-  width: 100%;
-  font-size: 20px;
-  box-shadow: none;
-  outline: none;
-}
-.prosAndCons .glyphicon-trash {
-  font-size: 16px;
-  margin-left: 10px;
-}
-a.cancelTitle {
+body a.cancelTitle {
   font-size: 15px;
 }
-a.cancelTitle .glyphicon-remove {
+body a.cancelTitle .glyphicon-remove {
   padding-right: 5px;
 }
-a.glyphicon-pencil {
+body a.glyphicon-pencil {
   margin-left: 5px;
 }
-div.alert {
-  width: 35%;
-  font-size: 20px;
+body .input-lg {
+  font-size: 30px;
+}
+@media only screen and (min-width: 992px) {
+  div.alert {
+    font-size: 20px;
+  }
+  .jumbotron .glyphicon {
+    display: inline-block;
+  }
+  header {
+    font-size: 34px;
+  }
+  header input.form-control {
+    font-size: 34px;
+  }
+  .jumbotron .glyphicon {
+    font-size: 100px;
+    margin-left: 50px;
+  }
+  .jumbotron .glyphicon.glyphicon-thumbs-up {
+    margin-left: 100px;
+  }
+  table thead th {
+    font-size: 25px;
+  }
+  .ng-dirty.ng-invalid {
+    border-color: #f00;
+  }
+  input[type="text"] {
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+  }
+  .prosAndCons {
+    margin: 0;
+  }
+  .prosAndCons .panel {
+    border-radius: 6px;
+  }
+  .prosAndCons .glyphicon-trash {
+    font-size: 16px;
+    margin-left: 10px;
+  }
 }
