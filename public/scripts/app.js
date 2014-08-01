@@ -22,19 +22,34 @@
         $scope.cons = [];
         $scope.titleInputVisible = false;
         $scope.DEFAULT_TITLE = "Add a title...";
-        $scope.title = $scope.DEFAULT_TITLE;
+        $scope.title = "";
         $scope.prevTitle = $scope.title;
+        $scope.showTitleErrorMsg = false;
+        $scope.showEmptyErrorMsg = false;
 
         $scope.saveList = function () {
+            var canSave = true;
+
             if (isWhitespace($scope.title)) {
                 $scope.showTitleErrorMsg = true;
+
+                canSave = false;
             }
 
-            $http.post("/save", {
-                title: $scope.title,
-                pros: $scope.pros,
-                cons: $scope.cons
-            });
+            if ($scope.pros.length == 0 && $scope.cons.length == 0) {
+                $scope.showEmptyErrorMsg = true;
+
+                canSave = false;
+            }
+
+
+            if (canSave) {
+                $http.post("/save", {
+                    title: $scope.title,
+                    pros: $scope.pros,
+                    cons: $scope.cons
+                });
+            }
         };
 
         $scope.deleteList = function () {

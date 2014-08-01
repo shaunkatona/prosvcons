@@ -94,7 +94,7 @@ app.get("/deleteall", function (req, res) {
     });
 });
 
-app.listen(8080);
+app.listen(process.argv[2] || 80);
 
 function GetProsCons(callback) {
     db.lists.find({_id: currentID}, function (error, list) {
