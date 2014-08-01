@@ -40,6 +40,16 @@ body a.glyphicon-pencil {
 body .input-lg {
   font-size: 30px;
 }
+body .prosAndCons {
+  padding: 0 15px;
+}
+body .prosAndCons .panel {
+  border-radius: 6px;
+}
+body .prosAndCons .glyphicon-trash {
+  font-size: 16px;
+  margin-left: 10px;
+}
 @media only screen and (min-width: 992px) {
   div.alert {
     font-size: 20px;
@@ -70,15 +80,5 @@ body .input-lg {
     box-shadow: none;
     outline: none;
     width: 100%;
-  }
-  .prosAndCons {
-    margin: 0;
-  }
-  .prosAndCons .panel {
-    border-radius: 6px;
-  }
-  .prosAndCons .glyphicon-trash {
-    font-size: 16px;
-    margin-left: 10px;
   }
 }
