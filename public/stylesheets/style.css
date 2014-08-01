@@ -20,10 +20,10 @@ body header a:hover {
   color: #000;
 }
 body #pros {
-  background-color: #bfb;
+  background-color: #dcfcdc;
 }
 body #cons {
-  background-color: #fbb;
+  background-color: #fde2e5;
 }
 body ul.nav .glyphicon {
   margin-right: 5px;
@@ -50,12 +50,20 @@ body .prosAndCons .glyphicon-trash {
   font-size: 16px;
   margin-left: 10px;
 }
-@media only screen and (min-width: 992px) {
+body .ng-dirty.ng-invalid {
+  border-color: #f00;
+}
+@media (min-width: 980px) {
   div.alert {
     font-size: 20px;
   }
   .jumbotron .glyphicon {
     display: inline-block;
+    font-size: 100px;
+    margin-left: 50px;
+  }
+  .jumbotron .glyphicon.glyphicon-thumbs-up {
+    margin-left: 100px;
   }
   header {
     font-size: 34px;
@@ -63,22 +71,7 @@ body .prosAndCons .glyphicon-trash {
   header input.form-control {
     font-size: 34px;
   }
-  .jumbotron .glyphicon {
-    font-size: 100px;
-    margin-left: 50px;
-  }
-  .jumbotron .glyphicon.glyphicon-thumbs-up {
-    margin-left: 100px;
-  }
   table thead th {
     font-size: 25px;
-  }
-  .ng-dirty.ng-invalid {
-    border-color: #f00;
-  }
-  input[type="text"] {
-    box-shadow: none;
-    outline: none;
-    width: 100%;
   }
 }

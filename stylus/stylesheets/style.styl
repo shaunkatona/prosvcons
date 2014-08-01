@@ -21,10 +21,10 @@ body
       color black
 
   #pros
-    background-color #bfb
+    background-color #DCFCDC
 
   #cons
-    background-color #fbb
+    background-color #FDE2E5
 
   ul.nav
     .glyphicon
@@ -52,13 +52,22 @@ body
       font-size 16px
       margin-left 10px
 
-@media only screen and (min-width: 992px)
+  .ng-dirty.ng-invalid
+    border-color red
+
+
+@media (min-width: 980px)
   div.alert
     font-size 20px
 
   .jumbotron
     .glyphicon
       display inline-block
+      font-size 100px
+      margin-left 50px
+
+      &.glyphicon-thumbs-up
+        margin-left 100px
 
   header
     font-size 34px
@@ -66,23 +75,7 @@ body
     input.form-control
       font-size 34px
 
-  .jumbotron
-    .glyphicon
-      font-size 100px
-      margin-left 50px
-
-      &.glyphicon-thumbs-up
-        margin-left 100px
-
   table
     thead
       th
         font-size 25px
-
-  .ng-dirty.ng-invalid
-    border-color red
-
-  input[type="text"]
-    box-shadow none
-    outline none
-    width 100%
