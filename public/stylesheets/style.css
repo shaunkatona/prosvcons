@@ -56,24 +56,24 @@ body .ng-dirty.ng-invalid {
   border-color: #f00;
 }
 @media (min-width: 980px) {
-  div.alert {
+  body div.alert {
     font-size: 20px;
   }
-  .jumbotron .glyphicon {
+  body .jumbotron .glyphicon {
     display: inline-block;
-    font-size: 100px;
+    font-size: 136px;
     margin-left: 50px;
   }
-  .jumbotron .glyphicon.glyphicon-thumbs-up {
+  body .jumbotron .glyphicon.glyphicon-thumbs-up {
     margin-left: 100px;
   }
-  header {
+  body header {
     font-size: 34px;
   }
-  header input.form-control {
+  body header input.form-control {
     font-size: 34px;
   }
-  table thead th {
+  body table thead th {
     font-size: 25px;
   }
 }
