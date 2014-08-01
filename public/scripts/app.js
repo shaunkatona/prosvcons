@@ -8,82 +8,92 @@
 
     var app = angular.module('ProsVCons', []);
 
-    app.controller('AppController', function ($scope, $http) {
-        this.showWeights = false;
-        this.currentPro = {
+    app.controller('AppController', ['$scope', '$http', function ($scope, $http) {
+        $scope.showWeights = false;
+        $scope.currentPro = {
             description: "",
             weight: 0
         };
-        this.currentCon = {
+        $scope.currentCon = {
             description: "",
             weight: 0
         };
-        this.pros = [];
-        this.cons = [];
-        this.titleInputVisible = false;
-        this.DEFAULT_TITLE = "Add a title...";
-        this.title = this.DEFAULT_TITLE;
-        this.prevTitle = this.title;
+        $scope.pros = [];
+        $scope.cons = [];
+        $scope.titleInputVisible = false;
+        $scope.DEFAULT_TITLE = "Add a title...";
+        $scope.title = $scope.DEFAULT_TITLE;
+        $scope.prevTitle = $scope.title;
 
-        this.saveList = function () {
+        $scope.saveList = function () {
+            if (isWhitespace($scope.title)) {
+                $scope.showTitleErrorMsg = true;
+            }
+
             $http.post("/save", {
-                title: this.title,
-                pros: this.pros,
-                cons: this.cons
+                title: $scope.title,
+                pros: $scope.pros,
+                cons: $scope.cons
             });
         };
 
-        this.saveTitle = function () {
-            if (isWhitespace(this.title)) {
+        $scope.deleteList = function () {
+            $http.delete("/delete", {
+                title: $scope.title
+            });
+        };
+
+        $scope.saveTitle = function () {
+            if (isWhitespace($scope.title)) {
                 $("#titleInput").addClass("ng-invalid");
             } else {
-                this.titleInputVisible = false;
-                this.prevTitle = this.title;
+                $scope.titleInputVisible = false;
+                $scope.prevTitle = $scope.title;
             }
         };
 
-        this.cancelTitleInput = function () {
-            this.titleInputVisible = false;
-            this.title = this.prevTitle;
+        $scope.cancelTitleInput = function () {
+            $scope.titleInputVisible = false;
+            $scope.title = $scope.prevTitle;
             $("#titleInput").removeClass("ng-invalid");
         };
 
-        this.showTitleInput = function () {
-            this.titleInputVisible = true;
+        $scope.showTitleInput = function () {
+            $scope.titleInputVisible = true;
 
             setTimeout(function () {
                 $("#titleInput").select();
             }, 0);
         };
 
-        this.incrementProWeight = function () {
-            this.currentPro.weight++;
+        $scope.incrementProWeight = function () {
+            $scope.currentPro.weight++;
         };
 
-        this.decrementProWeight = function () {
-            this.currentPro.weight--;
+        $scope.decrementProWeight = function () {
+            $scope.currentPro.weight--;
         };
 
-        this.incrementConWeight = function () {
-            this.currentCon.weight++;
+        $scope.incrementConWeight = function () {
+            $scope.currentCon.weight++;
         };
 
-        this.decrementConWeight = function () {
-            this.currentCon.weight--;
+        $scope.decrementConWeight = function () {
+            $scope.currentCon.weight--;
         };
 
-        this.removePro = function (index) {
-            this.pros.splice(index, 1);
+        $scope.removePro = function (index) {
+            $scope.pros.splice(index, 1);
         };
 
-        this.removeCon = function (index) {
-            this.cons.splice(index, 1);
+        $scope.removeCon = function (index) {
+            $scope.cons.splice(index, 1);
         };
 
-        this.savePro = function () {
-            this.pros.push(this.currentPro);
+        $scope.savePro = function () {
+            $scope.pros.push($scope.currentPro);
 
-            this.currentPro = {
+            $scope.currentPro = {
                 description: "",
                 weight: 0
             };
@@ -91,15 +101,15 @@
             $scope.proForm.$setPristine();
         }
 
-        this.saveCon = function () {
-            this.cons.push(this.currentCon);
+        $scope.saveCon = function () {
+            $scope.cons.push($scope.currentCon);
 
-            this.currentCon = {
+            $scope.currentCon = {
                 description: "",
                 weight: 0
             };
 
             $scope.conForm.$setPristine();
         }
-    });
+    }]);
 })();

@@ -7,68 +7,68 @@ block scripts
 block content
     .row
         .col-sm-12
-            form(name="titleForm", ng-submit="AppCtrl.saveTitle()" novalidate)
+            form(name="titleForm", ng-submit="saveTitle()" novalidate)
                 h1.text-center
-                    .titleTextWrapper(ng-hide="AppCtrl.titleInputVisible")
-                        span {{AppCtrl.title}}
-                        a(href="javascript: void(0);", ng-click="AppCtrl.showTitleInput()").glyphicon.glyphicon-pencil
-                    .titleInputWrapper(ng-show="AppCtrl.titleInputVisible")
-                        input(id="titleInput", name="titleInput", type="text", ng-model="AppCtrl.title")
-                        a(href="javascript: void(0);", ng-click="AppCtrl.cancelTitleInput()").cancelTitle
+                    .titleTextWrapper(ng-hide="titleInputVisible")
+                        span {{title}}
+                        a(href="javascript: void(0);", ng-click="showTitleInput()").glyphicon.glyphicon-pencil
+                    .titleInputWrapper(ng-show="titleInputVisible")
+                        input(id="titleInput", name="titleInput", type="text", ng-model="title")
+                        a(href="javascript: void(0);", ng-click="cancelTitleInput()").cancelTitle
                             .glyphicon.glyphicon-remove
                             | cancel
 
                 div.checkbox
                     label
-                        input(type="checkbox", ng-model="AppCtrl.showWeights")
+                        input(type="checkbox", ng-model="showWeights")
                         | Show Weights
     .row.prosAndCons
         #pros.col-sm-5.panel
-            form(name="proForm", ng-submit="proForm.$valid && AppCtrl.savePro()" novalidate)
+            form(name="proForm", ng-submit="proForm.$valid && savePro()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
 
                 table.table
                     thead
                         tr
                             th Pros
-                            th(ng-show="AppCtrl.showWeights") Weight
+                            th(ng-show="showWeights") Weight
                     tbody
                         tr
                             th
-                                input#pro(type="text", placeholder="Add your pro...", ng-model="AppCtrl.currentPro.description", required)
-                            th(ng-show="AppCtrl.showWeights")
-                                input(type="number", ng-model="AppCtrl.currentPro.weight", min="0", max="100").proWeight
-                        tr(ng-repeat="pro in AppCtrl.pros")
+                                input#pro(type="text", placeholder="Add your pro...", ng-model="currentPro.description", required)
+                            th(ng-show="showWeights")
+                                input(type="number", ng-model="currentPro.weight", min="0", max="100").proWeight
+                        tr(ng-repeat="pro in pros")
                             th
                                 | {{pro.description}}
-                                a(href="javascript: void(0);", ng-click="AppCtrl.removePro($index)")
+                                a(href="javascript: void(0);", ng-click="removePro($index)")
                                     span.glyphicon.glyphicon-trash
-                            th(ng-show="AppCtrl.showWeights")
+                            th(ng-show="showWeights")
                                 | {{pro.weight}}
 
         #cons.col-sm-5.col-sm-offset-2.panel
-            form(name="conForm", ng-submit="conForm.$valid && AppCtrl.saveCon()" novalidate)
+            form(name="conForm", ng-submit="conForm.$valid && saveCon()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
 
                 table.table
                     thead
                         tr
                             th Cons
-                            th(ng-show="AppCtrl.showWeights") Weight
+                            th(ng-show="showWeights") Weight
                     tbody
                         tr
                             th
-                                input#con(type="text", placeholder="Add your con...", ng-model="AppCtrl.currentCon.description", required)
-                            th(ng-show="AppCtrl.showWeights")
-                                input(type="number", ng-model="AppCtrl.currentCon.weight", min="0", max="100").conWeight
-                        tr(ng-repeat="con in AppCtrl.cons")
+                                input#con(type="text", placeholder="Add your con...", ng-model="currentCon.description", required)
+                            th(ng-show="showWeights")
+                                input(type="number", ng-model="currentCon.weight", min="0", max="100").conWeight
+                        tr(ng-repeat="con in cons")
                             th
                                 | {{con.description}}
-                                a(href="javascript: void(0);" ng-click="AppCtrl.removeCon($index)")
+                                a(href="javascript: void(0);" ng-click="removeCon($index)")
                                     span.glyphicon.glyphicon-trash
-                            th(ng-show="AppCtrl.showWeights")
+                            th(ng-show="showWeights")
                                 | {{con.weight}}
     .row
         .col-sm-12.text-center
-            button.btn-lg.btn-primary(ng-click="AppCtrl.saveList()")
+            button.btn-lg.btn-primary(ng-click="saveList()")
                 | Save!
