@@ -46,14 +46,15 @@ block content
                                 input.form-control#pro(type="text", placeholder="Add your pro...", ng-model="currentPro.description", required)
                             th(ng-show="showWeights")
                                 input.form-control.text-right(type="number", ng-model="currentPro.weight", min="0", max="100").proWeight
+                            th
                         tr(ng-repeat="pro in pros")
                             th
                                 | {{pro.description}}
-                                a(href="javascript: void(0);", ng-click="removePro($index)")
-                                    span.glyphicon.glyphicon-trash
                             th.text-right(ng-show="showWeights")
                                 | {{pro.weight}}
-
+                            th
+                                a(href="javascript: void(0);", ng-click="removePro($index)")
+                                    span.glyphicon.glyphicon-trash
         #cons.col-sm-5.col-sm-offset-2.panel
             form(name="conForm", ng-submit="conForm.$valid && saveCon()" novalidate)
                 input(type="submit", style="position: absolute; left: -9999px; width: 1px; height: 1px;")
@@ -69,13 +70,15 @@ block content
                                 input.form-control#con(type="text", placeholder="Add your con...", ng-model="currentCon.description", required)
                             th(ng-show="showWeights")
                                 input.form-control.text-right(type="number", ng-model="currentCon.weight", min="0", max="100").conWeight
+                            th
                         tr(ng-repeat="con in cons")
                             th
                                 | {{con.description}}
-                                a(href="javascript: void(0);" ng-click="removeCon($index)")
-                                    span.glyphicon.glyphicon-trash
                             th.text-right(ng-show="showWeights")
                                 | {{con.weight}}
+                            th
+                                a(href="javascript: void(0);" ng-click="removeCon($index)")
+                                    span.glyphicon.glyphicon-trash
     .row
         .col-sm-offset-3.col-sm-6
             .alert.alert-danger.alert-dismissable.text-center(ng-show="showEmptyErrorMsg", role="alert")
