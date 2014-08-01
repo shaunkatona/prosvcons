@@ -21,11 +21,17 @@ body header a:hover {
 }
 body #pros {
   background-color: #f0fdf0;
-  border: 1px solid #90ee90;
+  border: 1px solid #008000;
+}
+body #pros tfoot {
+  color: #008000;
 }
 body #cons {
   background-color: #fff5f6;
   border: 1px solid #ffb6c1;
+}
+body #cons tfoot {
+  color: #ffb6c1;
 }
 body ul.nav .glyphicon {
   margin-right: 5px;
@@ -74,6 +80,9 @@ body .ng-dirty.ng-invalid {
     font-size: 34px;
   }
   body table thead th {
+    font-size: 25px;
+  }
+  body tfoot {
     font-size: 25px;
   }
 }

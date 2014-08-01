@@ -114,7 +114,7 @@
             };
 
             $scope.proForm.$setPristine();
-        }
+        };
 
         $scope.saveCon = function () {
             $scope.cons.push($scope.currentCon);
@@ -125,6 +125,26 @@
             };
 
             $scope.conForm.$setPristine();
-        }
+        };
+
+        $scope.getProsWeightCount = function () {
+            var sum = 0;
+
+            for (var i = 0; i < $scope.pros.length; i++) {
+                sum += $scope.pros[i].weight;
+            }
+
+            return sum;
+        };
+
+        $scope.getConsWeightCount = function () {
+            var sum = 0;
+
+            for (var i = 0; i < $scope.cons.length; i++) {
+                sum += $scope.cons[i].weight;
+            }
+
+            return sum;
+        };
     }]);
 })();
