@@ -9,8 +9,8 @@
     var mongojs = require('mongojs');
     var async = require('async');
     var app = express();
-    var uri = "mongodb://nodejitsu:471dcfb59e0a68ffbadeb9a39ee694bf@troup.mongohq.com:10048/nodejitsudb6749814886",
-        db = mongojs.connect(uri, ["lists"]);
+    var databaseUrl = "prosvcons", //"mongodb://nodejitsu:471dcfb59e0a68ffbadeb9a39ee694bf@troup.mongohq.com:10048/nodejitsudb6749814886",
+        db = mongojs.connect(databaseUrl, ["lists"]);
     var currentID = "";
 
     app.set('view engine', 'jade');
@@ -50,11 +50,14 @@
             if (error) {
                 console.log(error);
             } else {
-                res.render("index.jade", {'myLists': results.lists, 'title': resuts.prosCons.title, 'pros': results.prosCons.pros, 'cons': results.prosCons.cons});
+                console.log("after async:", results);
+
+                res.render("index.jade", {'myLists': results.lists, 'title': results.prosCons.title, 'pros': results.prosCons.pros, 'cons': results.prosCons.cons});
             }
         });
     });
 
+    /*
     app.get('/about', function (req, res) {
         res.render("about.jade");
     });
@@ -62,7 +65,7 @@
     app.get('/contact', function (req, res) {
         res.render("contact.jade");
     });
-
+*/
     app.post('/save', function (req, res) {
         db.lists.save({
             title: req.body.title,
@@ -112,9 +115,10 @@
                     cons: []
                 };
             } else {
+                console.log("found list: ", list[0]);
             }
 
-            callback(null, {title: list.title, pros: list.pros, cons: list.cons});
+            callback(null, {title: list[0].title, pros: list[0].pros, cons: list[0].cons});
         });
     }
 
@@ -125,6 +129,7 @@
 
                 lists = [];
             } else {
+                console.log("found lists:", lists);
             }
 
             callback(null, lists);

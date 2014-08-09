@@ -8,7 +8,7 @@
 
     var app = angular.module('ProsVCons', []);
 
-    app.controller('AppController', ['$scope', '$http', function ($scope, $http) {
+    app.controller('MainController', ['$scope', '$http', function ($scope, $http) {
         $scope.showWeights = false;
         $scope.currentPro = {
             description: "",
@@ -52,11 +52,11 @@
             }
         };
 
-        $scope.deleteList = function () {
+        /*$scope.deleteList = function () {
             $http.delete("/delete", {
                 title: $scope.title
             });
-        };
+        };*/
 
         $scope.saveTitle = function () {
             if (isWhitespace($scope.title)) {
