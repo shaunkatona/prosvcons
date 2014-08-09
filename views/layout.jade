@@ -10,7 +10,7 @@ html
         link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap-theme.min.css")
         link(rel="stylesheet", href="/stylesheets/style.css")
         meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
-    body(role="document", ng-app="ProsVCons")
+    body(role="document", ng-app="ProsVCons", ng-controller="MainController as MainCtrl")
         .navbar.navbar-inverse.navbar-fixed-top(role="navigation")
             .container
                 .navbar-header
@@ -24,24 +24,19 @@ html
                     ul.nav.navbar-nav
                         li.active
                             a(href="/") Home
-                        //li
-                            a(href="/about") About
-                        //li
-                            a(href="/contact") Contact
                     ul.nav.navbar-nav.navbar-right
                         li.dropdown
                             a.dropdown-toggle(data-toggle="dropdown", href="javascript: void(0);")
                                 .glyphicon.glyphicon-th-list
                                 | My Lists
-                                span.badge #{myLists.length}
+                                span.badge {{lists.length}}
                                 span.caret
                             ul.dropdown-menu(role="menu")
                                 li.dropdown-header
                                     | Public
-                                    span.badge #{myLists.length}
-                                each myList in myLists
-                                    li
-                                        a(href="/lists/#{myList._id}") #{myList.title}
+                                    span.badge {{lists.length}}
+                                li(ng-repeat="list in lists")
+                                    a(href="/list/{{list.id}}") {{list.title}}
                                 li.divider
                                 li.dropdown-header
                                     | Private - not real
@@ -51,7 +46,7 @@ html
                                     li
                                         a(href="javascript: void(0);") List #5
 
-        .container(role="main", ng-controller="MainController as MainCtrl")
+        .container(role="main")
             .jumbotron.clearfix
                 .pull-left
                     h1 Pros v Cons

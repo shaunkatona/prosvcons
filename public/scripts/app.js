@@ -27,6 +27,10 @@
         $scope.showTitleErrorMsg = false;
         $scope.showEmptyErrorMsg = false;
 
+        $http.get('/getMyLists').then(function (res) {
+            $scope.lists = res.data;
+        });
+
         $scope.saveList = function () {
             var canSave = true;
 
@@ -42,7 +46,6 @@
                 canSave = false;
             }
 
-
             if (canSave) {
                 $http.post("/save", {
                     title: $scope.title,
@@ -51,12 +54,6 @@
                 });
             }
         };
-
-        /*$scope.deleteList = function () {
-            $http.delete("/delete", {
-                title: $scope.title
-            });
-        };*/
 
         $scope.saveTitle = function () {
             if (isWhitespace($scope.title)) {

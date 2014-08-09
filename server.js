@@ -31,6 +31,10 @@
     app.use("/stylesheets", express.static(__dirname + '/public/stylesheets/'));
 
     app.get('/', function (req, res) {
+        res.render("index.jade");
+    });
+
+    app.get('/getMyLists', function (req, res) {
         db.lists.find({}, function (error, lists) {
             if (error || !lists) {
                 console.log(error);
@@ -39,11 +43,11 @@
             } else {
             }
 
-            res.render("index.jade", {'myLists': lists});
+            res.send(lists);
         });
     });
-
-    app.get('/lists/:id', function (req, res) {
+/*
+    app.get('/list/:id', function (req, res) {
         currentID = req.params.id;
 
         async.parallel({lists: GetMyLists, prosCons: GetProsCons}, function (error, results) {
@@ -56,7 +60,7 @@
             }
         });
     });
-
+*/
     /*
     app.get('/about', function (req, res) {
         res.render("about.jade");
