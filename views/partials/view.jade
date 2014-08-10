@@ -1,0 +1,44 @@
+.row
+    .col-sm-12
+        header.text-center
+            .titleTextWrapper
+                h1 {{title}}
+.row
+    .col-sm-12
+        div.checkbox
+            label
+                input(type="checkbox", ng-model="showWeights")
+                | Show Weights
+.row.prosAndCons
+    #pros.col-sm-5.panel
+        table.table
+            thead
+                tr
+                    th Pros
+                    th.text-right(ng-show="showWeights") Weight
+            tbody
+                tr(ng-repeat="pro in pros")
+                    th
+                        | {{pro.description}}
+                    th.text-right(ng-show="showWeights")
+                        | {{pro.weight}}
+            tfoot
+                tr
+                    th {{pros.length}} Pros
+                    th.text-right(ng-show="showWeights") {{getProsWeightCount()}}
+    #cons.col-sm-5.col-sm-offset-2.panel
+        table.table
+            thead
+                tr
+                    th Cons
+                    th.text-right(ng-show="showWeights") Weight
+            tbody
+                tr(ng-repeat="con in cons")
+                    th
+                        | {{con.description}}
+                    th.text-right(ng-show="showWeights")
+                        | {{con.weight}}
+            tfoot
+                tr
+                    th {{cons.length}} Cons
+                    th.text-right(ng-show="showWeights") {{getConsWeightCount()}}
