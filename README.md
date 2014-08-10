@@ -10,10 +10,9 @@ stack + Stylus, Jade and Bootstrap
 To do
 -----
 - For MVP:
-    - Saving needs to take the _id with it
     - Fill out Contact page
     - Fill out About page
-    - Make a FAQ/Help page
+    - Make a FAQ/Help page?
     - Add a Delete button next to Save, to delete saved lists
     - Private Github account? (db passwords, hosts)
 - Further enhancements:

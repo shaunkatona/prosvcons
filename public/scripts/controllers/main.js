@@ -47,8 +47,7 @@
 
                 $http.post("/api/save", list).then(function (res) {
                     // WHY DOES THIS NEED TO BE $scope.$parent?!?!?!
-                    $scope.$parent.lists.push(list);
-
+                    $scope.$parent.lists.push(res.data);
                 }, function (res) {
                     console.log("error!");
                 });

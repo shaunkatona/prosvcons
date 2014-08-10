@@ -38,17 +38,12 @@ module.exports = function(app) {
             title: req.body.title,
             pros: req.body.pros,
             cons: req.body.cons
-        }, function (error, value) {
-            var success = {success: true};
-
+        }, function (error, list) {
             if (error) {
                 console.log(error);
-                success.success = false;
             } else {
-
+                res.json(list);
             }
-
-            res.json(success);
         });
     });
 
