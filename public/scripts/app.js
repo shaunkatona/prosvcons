@@ -5,6 +5,7 @@
     app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', { templateUrl: '/partials/index', controller: 'MainCtrl' })
+            .when('/about', { templateUrl: 'partials/about' })
             .when('/view/:listid', { templateUrl: '/partials/view', controller: 'ViewCtrl' })
             .otherwise({ redirectTo: '/' });
 
