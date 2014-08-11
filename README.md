@@ -10,8 +10,11 @@ stack + Stylus, Jade and Bootstrap
 To do
 -----
 - For MVP:
-    - Make a FAQ/Help page?
-    - Private Github account? (db passwords, hosts)
+    - add loading indicator for Saving
+    - add active state to About page tab
+    - add delete route
+    - add edit route
+    - remove dropdown list of "my lists"
 - Further enhancements:
     - Refactor the Angular controller to be more modular.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery

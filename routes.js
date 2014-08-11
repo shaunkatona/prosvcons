@@ -8,15 +8,15 @@ module.exports = function(app) {
     // authentication routes
 
     app.get('/api/list/:id', function(req, res) {
-        db.lists.find({_id: mongojs.ObjectId(req.params.id)}, function (error, lists) {
-            if (error || !lists) {
+        db.lists.find({_id: mongojs.ObjectId(req.params.id)}, function (error, list) {
+            if (error || !list) {
                 console.log(error);
 
-                lists = [];
+                list = [];
             } else {
             }
 
-            res.json(lists);
+            res.json(list);
         });
     });
 
@@ -37,7 +37,8 @@ module.exports = function(app) {
         db.lists.save({
             title: req.body.title,
             pros: req.body.pros,
-            cons: req.body.cons
+            cons: req.body.cons,
+            insertDate: new Date()
         }, function (error, list) {
             if (error) {
                 console.log(error);
