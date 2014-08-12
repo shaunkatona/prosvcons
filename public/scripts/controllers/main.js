@@ -1,5 +1,5 @@
 (function() {
-    angular.module('ProsVCons.controllers').controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+    angular.module('ProsVCons.controllers').controller('MainCtrl', ['$scope', '$http', 'Data', function ($scope, $http, Data) {
         $scope.showWeights = false;
         $scope.currentPro = {
             description: "",
@@ -17,11 +17,7 @@
         $scope.prevTitle = $scope.title;
         $scope.showTitleErrorMsg = false;
         $scope.showEmptyErrorMsg = false;
-        $scope.lists = [];
-
-        $http.get('/api/lists').then(function (res) {
-            $scope.lists = res.data;
-        });
+        $scope.data = Data;
 
         $scope.saveList = function () {
             var canSave = true;
@@ -45,11 +41,8 @@
                     cons: $scope.cons
                 };
 
-                $http.post("/api/save", list).then(function (res) {
-                    // WHY DOES THIS NEED TO BE $scope.$parent?!?!?!
-                    $scope.$parent.lists.push(res.data);
-                }, function (res) {
-                    console.log("error!");
+                Data.addList(list).success(function (res) {
+                    $scope.data.lists.push(res);
                 });
             }
         };

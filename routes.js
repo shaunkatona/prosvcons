@@ -60,7 +60,6 @@ module.exports = function(app) {
         res.render('partials/'+ req.params.name);
     });
 
-
     // route to handle all angular requests
     app.get('*', function(req, res) {
         res.render('index');

@@ -12,18 +12,15 @@ To do
 - For MVP:
     - add loading indicator for Saving
     - add active state to About page tab
-    - add delete route
     - add edit route
     - remove dropdown list of "my lists"
+    - pluralize aggregate count labels
 - Further enhancements:
     - Refactor the Angular controller to be more modular.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery
-    - Refactor to have 1 Ctrl for the body, and 1 Ctrl for each route
-        - will fix that weird $scope.$parent requirement
     - User Auth:
         - guest lists
             - editable/viewable by all
-            - get deleted 30 days after the last view
         - public lists
             - can be viewed by anyone/guest
             - add a "allow others to edit" toggle for the creator

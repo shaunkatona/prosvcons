@@ -11,4 +11,12 @@
 
         $locationProvider.html5Mode(true);
     }]);
+
+    angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', 'Data', function ($scope, $http, Data) {
+        $scope.data = Data;
+
+        Data.getLists().success(function (res) {
+            $scope.data.lists = res;
+        });
+    }]);
 })();
