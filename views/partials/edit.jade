@@ -90,4 +90,6 @@
 .row
     .col-sm-12.text-center
         button.btn-lg.btn-primary(ng-click="updateList()")
-            | Update!
+            | Update
+        button.btn-lg.btn-default(ng-click="go('/view/' + _id)")
+            | Cancel

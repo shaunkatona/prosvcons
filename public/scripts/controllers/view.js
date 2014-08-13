@@ -4,8 +4,9 @@
         $scope.pros = [];
         $scope.cons = [];
         $scope.title = "";
+        $scope._id = $routeParams.listid;
 
-        $http.get('/api/list/' + $routeParams.listid).then(function (res) {
+        $http.get('/api/list/' + $scope._id).then(function (res) {
             $scope.title = res.data[0].title;
             $scope.pros = res.data[0].pros;
             $scope.cons = res.data[0].cons;

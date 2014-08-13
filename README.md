@@ -10,19 +10,35 @@ stack + Stylus, Jade and Bootstrap
 To do
 -----
 - For MVP:
-    - add loading indicator for Saving
-    - remove dropdown list of "my lists"
-- Further enhancements:
-    - Refactor the Angular controller to be more modular.  Duplicate code for pros and cons is no good.
-    - Refactor to have zero jquery
     - User Auth:
+        - LocalAuth
+        - FacebookAuth
+        - GoogleAuth
+        - if logged in add a Welcome, <name>! next to My Lists dropdown
+            - and a log out button
+        - if not logged in, just a "Sign in" link that opens a form modal
+            - no My Lists dropdown
         - guest lists
-            - editable/viewable by all
-        - public lists
-            - can be viewed by anyone/guest
-            - add a "allow others to edit" toggle for the creator
-            - share button
-        - private lists
-            - can only be viewed by "you"
-            - can only be deleted by "you"
-            - can only be edited by "you"
+            - viewable by all
+            - editable by all
+            - deletable by none
+            - share with anyone via the URL
+        - user lists
+            - public lists
+                - viewable by all
+                - editable by only the user
+                - deletable by only the user
+                - share with anyone via the URL
+                - allow others to edit toggle
+                    - editable by anyone
+            - private lists
+                - viewable by only the user
+                - editable by only the user
+                - deletable by only the user
+                - there is no edit toggle for other users
+    - add loading indicator for Saving
+    - add loading indicator for Updating
+    - upon an initial save of a list, automatically go to the view view
+- Further enhancements:
+    - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
+    - Refactor to have zero jquery

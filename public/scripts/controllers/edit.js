@@ -23,6 +23,7 @@
             $scope.title = res.data[0].title;
             $scope.pros = res.data[0].pros;
             $scope.cons = res.data[0].cons;
+            $scope._id = res.data[0]._id;
         });
 
         $scope.updateList = function () {

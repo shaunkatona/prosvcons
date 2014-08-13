@@ -13,12 +13,16 @@
         $locationProvider.html5Mode(true);
     }]);
 
-    angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', '$route', 'Data', function ($scope, $http, $route, Data) {
+    angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', '$route', '$location', 'Data', function ($scope, $http, $route, $location, Data) {
         $scope.$route = $route;
         $scope.data = Data;
 
         Data.getLists().success(function (res) {
             $scope.data.lists = res;
         });
+
+        $scope.go = function (path) {
+            $location.path(path);
+        };
     }]);
 })();

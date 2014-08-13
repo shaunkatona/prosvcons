@@ -67,6 +67,9 @@ body p em strong {
 body span.email {
   color: #ffa500;
 }
+body button+button {
+  margin-left: 20px;
+}
 @media (min-width: 980px) {
   body div.alert {
     font-size: 20px;
