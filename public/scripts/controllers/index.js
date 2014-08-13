@@ -1,5 +1,5 @@
 (function() {
-    angular.module('ProsVCons.controllers').controller('MainCtrl', ['$scope', '$http', 'Data', function ($scope, $http, Data) {
+    angular.module('ProsVCons.controllers').controller('MainCtrl', ['$scope', '$http', '$location', 'Data', function ($scope, $http, $location, Data) {
         $scope.showWeights = false;
         $scope.currentPro = {
             description: "",
@@ -43,6 +43,8 @@
 
                 Data.addList(list).success(function (res) {
                     $scope.data.lists.push(res);
+
+                    $location.path('/view/' + res._id);
                 });
             }
         };

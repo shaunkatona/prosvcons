@@ -1,5 +1,5 @@
 (function() {
-    angular.module('ProsVCons.controllers').controller('EditCtrl', ['$scope', '$http', '$routeParams', 'Data', function ($scope, $http, $routeParams, Data) {
+    angular.module('ProsVCons.controllers').controller('EditCtrl', ['$scope', '$http', '$routeParams', '$location', 'Data', function ($scope, $http, $routeParams, $location, Data) {
         $scope.showWeights = false;
         $scope.currentPro = {
             description: "",
@@ -60,7 +60,8 @@
                     }
 
                     $scope.data.lists[index] = list;
-                    // hide eventual loading indicator?
+
+                    $location.path('/view/' + list._id);
                 });
             }
         };

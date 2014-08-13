@@ -38,7 +38,6 @@ To do
                 - there is no edit toggle for other users
     - add loading indicator for Saving
     - add loading indicator for Updating
-    - upon an initial save of a list, automatically go to the view view
 - Further enhancements:
     - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery
