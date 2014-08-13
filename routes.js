@@ -48,6 +48,24 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/api/update', function (req, res) {
+        db.lists.update({
+            _id: mongojs.ObjectId(req.body._id)
+        },
+        {
+            title: req.body.title,
+            pros: req.body.pros,
+            cons: req.body.cons,
+            insertDate: new Date()
+        }, function (error, list) {
+            if (error) {
+                console.log(error);
+            } else {
+                res.json(list);
+            }
+        });
+    });
+
     // route to handle creating (app.post)
     // route to handle delete (app.delete)
 

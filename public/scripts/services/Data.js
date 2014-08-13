@@ -6,7 +6,10 @@
                 return $http.get('/api/lists');
             },
             addList: function (list) {
-                return $http.post("/api/save", list);
+                return $http.post('/api/save', list);
+            },
+            updateList: function (list) {
+                return $http.post('/api/update', list);
             }
         };
     }]);

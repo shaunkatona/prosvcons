@@ -11,7 +11,6 @@ To do
 -----
 - For MVP:
     - add loading indicator for Saving
-    - add edit route
     - remove dropdown list of "my lists"
 - Further enhancements:
     - Refactor the Angular controller to be more modular.  Duplicate code for pros and cons is no good.

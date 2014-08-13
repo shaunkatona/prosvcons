@@ -7,6 +7,7 @@
             .when('/', { templateUrl: '/partials/index', controller: 'MainCtrl', activeTab:'index' })
             .when('/about', { templateUrl: 'partials/about', activeTab: 'about' })
             .when('/view/:listid', { templateUrl: '/partials/view', controller: 'ViewCtrl' })
+            .when('/edit/:listid', { templateUrl: '/partials/edit', controller: 'EditCtrl' })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);
