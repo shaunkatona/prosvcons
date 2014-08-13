@@ -18,9 +18,9 @@ html(ng-app="ProsVCons")
                     a.navbar-brand(href="/") Pros v Cons
                 .navbar-collapse.collapse
                     ul.nav.navbar-nav
-                        li.active
+                        li(ng-class="{active: $route.current.activeTab == 'index'}")
                             a(href="/") Home
-                        li
+                        li(ng-class="{active: $route.current.activeTab == 'about'}")
                             a(href="/about") About
                     ul.nav.navbar-nav.navbar-right
                         li.dropdown

@@ -4,15 +4,16 @@
 
     app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', { templateUrl: '/partials/index', controller: 'MainCtrl' })
-            .when('/about', { templateUrl: 'partials/about' })
+            .when('/', { templateUrl: '/partials/index', controller: 'MainCtrl', activeTab:'index' })
+            .when('/about', { templateUrl: 'partials/about', activeTab: 'about' })
             .when('/view/:listid', { templateUrl: '/partials/view', controller: 'ViewCtrl' })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);
     }]);
 
-    angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', 'Data', function ($scope, $http, Data) {
+    angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', '$route', 'Data', function ($scope, $http, $route, Data) {
+        $scope.$route = $route;
         $scope.data = Data;
 
         Data.getLists().success(function (res) {

@@ -50,7 +50,7 @@
                                 span.glyphicon.glyphicon-trash
                 tfoot
                     tr
-                        th(colspan=1) {{pros.length}} Pros
+                        th(colspan=1) {{pros.length}} {{pros.length == 1 ? "Pro" : "Pros"}}
                         th.text-right(ng-show="showWeights") {{getProsWeightCount()}}
                         th
 
@@ -80,7 +80,7 @@
                                 span.glyphicon.glyphicon-trash
                 tfoot
                     tr
-                        th(colspan=1) {{cons.length}} Cons
+                        th(colspan=1) {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
                         th.text-right(ng-show="showWeights") {{getConsWeightCount()}}
                         th
 .row
