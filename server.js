@@ -34,7 +34,7 @@
     app.use(passport.session());
     app.use(flash());
 
-    require('./routes.js')(app);
+    require('./config/routes.js')(app);
 
     app.listen(process.argv[2] || 80);
 
