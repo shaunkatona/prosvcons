@@ -1,50 +1,50 @@
 #loginModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true")
     .modal-dialog
         .modal-content(ng-show="showLoginForm")
-            .modal-header
-                button(type="button" class="close" data-dismiss="modal")
-                    span(aria-hidden="true") &times;
-                    span.sr-only
-                        | Close
-                h4.modal-title#myModalLabel.text-center
-                    | Login
-            .modal-body
-                form(novalidate role="form" action="/login" method="POST")
+            form(novalidate role="form" action="/login" method="POST")
+                .modal-header
+                    button(type="button" class="close" data-dismiss="modal")
+                        span(aria-hidden="true") &times;
+                        span.sr-only
+                            | Close
+                    h4.modal-title#myModalLabel.text-center
+                        | Login
+                .modal-body
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")
                     .form-group
                         label(for="password") Password:
                         input.form-control(type="text" name="password" id="password")
-            .modal-footer
-                span.pull-left
-                    | Don't have an account?&nbsp;
-                    a(href="javascript: void(0);" ng-click="showLoginForm=false") Sign up!
-                button(type="button" class="btn btn-default" data-dismiss="modal")
-                    | Cancel
-                button(type="button" class="btn btn-primary")
-                    | Login
+                .modal-footer
+                    span.pull-left
+                        | Don't have an account?&nbsp;
+                        a(href="javascript: void(0);" ng-click="showLoginForm=false") Sign up!
+                    button(type="button" class="btn btn-default" data-dismiss="modal")
+                        | Cancel
+                    button(type="submit" class="btn btn-primary")
+                        | Login
         .modal-content(ng-hide="showLoginForm")
-            .modal-header
-                button(type="button" class="close" data-dismiss="modal")
-                    span(aria-hidden="true") &times;
-                    span.sr-only
-                        | Close
-                h4.modal-title#myModalLabel.text-center
-                    | Sign Up
-            .modal-body
-                form(novalidate role="form" action="/signup" method="POST")
+            form(novalidate role="form" action="/signup" method="POST")
+                .modal-header
+                    button(type="button" class="close" data-dismiss="modal")
+                        span(aria-hidden="true") &times;
+                        span.sr-only
+                            | Close
+                    h4.modal-title#myModalLabel.text-center
+                        | Sign Up
+                .modal-body
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")
                     .form-group
                         label(for="password") Password:
                         input.form-control(type="text" name="password" id="password")
-            .modal-footer
-                span.pull-left
-                    | Already have an account?&nbsp;
-                    a(href="javascript: void(0);" ng-click="showLoginForm=true") Login!
-                button(type="button" class="btn btn-default" data-dismiss="modal")
-                    | Cancel
-                button(type="button" class="btn btn-primary")
-                    | Sign up
+                .modal-footer
+                    span.pull-left
+                        | Already have an account?&nbsp;
+                        a(href="javascript: void(0);" ng-click="showLoginForm=true") Login!
+                    button(type="button" class="btn btn-default" data-dismiss="modal")
+                        | Cancel
+                    button(type="submit" class="btn btn-primary")
+                        | Sign up

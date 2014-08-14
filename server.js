@@ -10,6 +10,13 @@
     var flash = require('connect-flash');
     var LocalStrategy = require('passport-local').Strategy;
     var app = express();
+    var configDB = require('./config/database');
+    var mongoose = require('mongoose');
+
+    // configuration ===============================================================
+    mongoose.connect(configDB.url); // connect to our database
+
+    require('./config/passport')(passport); // pass passport for configuration
 
     app.set('view engine', 'jade');
     app.use(stylus.middleware(
