@@ -35,7 +35,7 @@
     app.use(express.static(__dirname + '/public/'));
     app.use("/stylesheets", express.static(__dirname + '/public/stylesheets/'));
     app.use(cookieParser());
-    //app.use(bodyParser());
+    app.use(bodyParser());
     app.use(session({secret: "katie28"}));
     app.use(passport.initialize());
     app.use(passport.session());
