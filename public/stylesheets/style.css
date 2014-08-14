@@ -70,6 +70,9 @@ body span.email {
 body button+button {
   margin-left: 20px;
 }
+body #settings button {
+  margin-top: 10px;
+}
 @media (min-width: 980px) {
   body div.alert {
     font-size: 20px;

@@ -5,5 +5,7 @@ block scripts
     script(type="text/javascript", src="/scripts/controllers/view.js")
     script(type="text/javascript", src="/scripts/controllers/edit.js")
     script(type="text/javascript", src="/scripts/services/Data.js")
+    script(type="text/javascript", src="/scripts/directives/loginModal.js")
 block content
+    <login-modal></login-modal>
     div(ng-view)

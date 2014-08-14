@@ -36,8 +36,8 @@ To do
                 - editable by only the user
                 - deletable by only the user
                 - there is no edit toggle for other users
-    - add loading indicator for Saving
-    - add loading indicator for Updating
+    - add error indicator for Saving
+    - add error indicator for Updating
 - Further enhancements:
     - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery

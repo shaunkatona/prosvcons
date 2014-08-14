@@ -1,0 +1,23 @@
+#loginModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button(type="button" class="close" data-dismiss="modal")
+                    span(aria-hidden="true")&times;</span>
+                    span.sr-only
+                        | Close
+                h4.modal-title#myModalLabel.text-center
+                    | Login
+            .modal-body
+                form(novalidate role="form")
+                    .form-group
+                        label(for="username") Username:
+                        input.form-control(type="text" name="username" id="username")
+                    .form-group
+                        label(for="password") Password:
+                        input.form-control(type="text" name="password" id="password")
+            .modal-footer
+                button(type="button" class="btn btn-default" data-dismiss="modal")
+                    | Cancel
+                button(type="button" class="btn btn-primary")
+                    | Login
