@@ -16,7 +16,7 @@ To do
         - GoogleAuth
         - if logged in add a Welcome, <name>! next to My Lists dropdown
             - and a log out button
-        - if not logged in, just a "Sign in" link that opens a form modal
+        - if not logged in
             - no My Lists dropdown
         - guest lists
             - viewable by all
@@ -41,3 +41,4 @@ To do
 - Further enhancements:
     - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery
+    - change list db to use mongoose

@@ -29,12 +29,12 @@
     app.use("/stylesheets", express.static(__dirname + '/public/stylesheets/'));
     app.use(cookieParser());
     //app.use(bodyParser());
-    app.use(session({secret: "SECRET"}));
+    app.use(session({secret: "katie28"}));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
 
-    require('./config/routes.js')(app);
+    require('./config/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
     app.listen(process.argv[2] || 80);
 

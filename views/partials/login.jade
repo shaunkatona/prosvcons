@@ -9,7 +9,7 @@
                 h4.modal-title#myModalLabel.text-center
                     | Login
             .modal-body
-                form(novalidate role="form")
+                form(novalidate role="form" action="/login" method="POST")
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")
@@ -33,7 +33,7 @@
                 h4.modal-title#myModalLabel.text-center
                     | Sign Up
             .modal-body
-                form(novalidate role="form")
+                form(novalidate role="form" action="/signup" method="POST")
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")

@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, passport) {
     var mongojs = require('mongojs');
     var databaseUrl = "prosvcons",
         db = mongojs.connect(databaseUrl, ["lists"]);
@@ -66,8 +66,14 @@ module.exports = function(app) {
         });
     });
 
-    // route to handle creating (app.post)
-    // route to handle delete (app.delete)
+    // process the signup form
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/', // redirect to the home page
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+
+    // TODO route to handle list delete (app.delete)
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {
@@ -81,5 +87,13 @@ module.exports = function(app) {
     // route to handle all angular requests
     app.get('*', function(req, res) {
         res.render('index');
+    });
+
+    // =====================================
+    // LOGOUT ==============================
+    // =====================================
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
     });
 };
