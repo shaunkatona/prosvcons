@@ -8,7 +8,8 @@ var listSchema = mongoose.Schema({
     cons: [
         {description: String, weight: Number}
     ],
-    insertDate: Date
+    insertDate: Date,
+    userID: {type: String, default: "__public__"}
 });
 
 // create the model for users and expose it to our app

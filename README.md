@@ -13,7 +13,7 @@ To do
 - email already exists message
 - add createDate and lastLoginDate to user.js
     - update those when logging in and signing up
-- add a userID to lists
+- add a public/private flag on lists
 - public users can't hack URL to view/edit/update anything
 - only correct users can hack URL to view/edit/update anything
 
@@ -22,13 +22,9 @@ To do
         - LocalAuth
         - FacebookAuth
         - GoogleAuth
-        - if logged in add a Welcome, <name>! next to My Lists dropdown
-            - and a log out button
-        - if not logged in
-            - no My Lists dropdown
         - guest lists
             - viewable by all
-            - editable by all
+            - editable by all/none?
             - deletable by none
             - share with anyone via the URL
         - user lists
@@ -49,4 +45,3 @@ To do
 - Further enhancements:
     - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery
-    - change list db to use mongoose

@@ -20,15 +20,28 @@ module.exports = function(app, passport) {
     });
 
     app.get('/api/lists', function(req, res) {
-        List.find(function (err, lists) {
-            if (err || !lists) {
-                console.log(err);
+        if (req.isAuthenticated()) {
+            List.find({_id: req.user._id}, function (err, lists) {
+                if (err || !lists) {
+                    console.log(err);
 
-                lists = [];
-            }
+                    lists = [];
+                }
 
-            res.json(lists);
-        });
+                res.json(lists);
+            });
+        } else {
+
+            List.find(function (err, lists) {
+                if (err || !lists) {
+                    console.log(err);
+
+                    lists = [];
+                }
+
+                res.json(lists);
+            });
+        }
     });
 
     app.post('/api/save', function (req, res) {
@@ -37,6 +50,10 @@ module.exports = function(app, passport) {
         newList.pros = req.body.pros;
         newList.cons = req.body.cons;
         newList.insertDate = Date.now();
+
+        if (req.isAuthenticated()) {
+            newList.userID = req.user._id;
+        }
 
         newList.save(function (err, list) {
             if (err) {
@@ -86,7 +103,6 @@ module.exports = function(app, passport) {
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {
-        console.log("isLoggedIn:", req.isAuthenticated());
         res.render('layout', {isLoggedIn: req.isAuthenticated()});
     });
 
