@@ -7,9 +7,9 @@
         $scope._id = $routeParams.listid;
 
         $http.get('/api/list/' + $scope._id).then(function (res) {
-            $scope.title = res.data[0].title;
-            $scope.pros = res.data[0].pros;
-            $scope.cons = res.data[0].cons;
+            $scope.title = res.data.title;
+            $scope.pros = res.data.pros;
+            $scope.cons = res.data.cons;
         });
 
         $scope.getProsWeightCount = function () {

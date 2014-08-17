@@ -9,6 +9,14 @@ stack + Stylus, Jade and Bootstrap
 
 To do
 -----
+- incorrect username/password message
+- email already exists message
+- add createDate and lastLoginDate to user.js
+    - update those when logging in and signing up
+- add a createDate to lists
+- add a userID to lists
+
+
 - For MVP:
     - User Auth:
         - LocalAuth

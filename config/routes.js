@@ -1,19 +1,18 @@
 module.exports = function(app, passport) {
-    var mongojs = require('mongojs');
-    var databaseUrl = "prosvcons",
-        db = mongojs.connect(databaseUrl, ["lists"]);
+    var List = require('../models/list');
+    var mongoose = require('mongoose');
 
     // server routes ===========================================================
     // handle things like api calls
     // authentication routes
 
     app.get('/api/list/:id', function(req, res) {
-        db.lists.find({_id: mongojs.ObjectId(req.params.id)}, function (error, list) {
-            if (error || !list) {
-                console.log(error);
+        List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now}, function(err, list) {
+            // if there are any errors, return the error before anything else
+            if (err || !list) {
+                console.log(err);
 
                 list = [];
-            } else {
             }
 
             res.json(list);
@@ -21,12 +20,11 @@ module.exports = function(app, passport) {
     });
 
     app.get('/api/lists', function(req, res) {
-        db.lists.find({}, function (error, lists) {
-            if (error || !lists) {
-                console.log(error);
+        List.find(function (err, lists) {
+            if (err || !lists) {
+                console.log(err);
 
                 lists = [];
-            } else {
             }
 
             res.json(lists);
@@ -34,14 +32,15 @@ module.exports = function(app, passport) {
     });
 
     app.post('/api/save', function (req, res) {
-        db.lists.save({
-            title: req.body.title,
-            pros: req.body.pros,
-            cons: req.body.cons,
-            insertDate: new Date()
-        }, function (error, list) {
-            if (error) {
-                console.log(error);
+        var newList = new List();
+        newList.title = req.body.title;
+        newList.pros = req.body.pros;
+        newList.cons = req.body.cons;
+        newList.insertDate = Date.now();
+
+        newList.save(function (err, list) {
+            if (err) {
+                console.log(err);
             } else {
                 res.json(list);
             }
@@ -49,22 +48,23 @@ module.exports = function(app, passport) {
     });
 
     app.post('/api/update', function (req, res) {
-        db.lists.update({
-            _id: mongojs.ObjectId(req.body._id)
-        },
-        {
-            title: req.body.title,
-            pros: req.body.pros,
-            cons: req.body.cons,
-            insertDate: new Date()
-        }, function (error, list) {
-            if (error) {
-                console.log(error);
-            } else {
-                res.json(list);
+        List.update(
+            {_id: req.body._id},
+            {
+                title: req.body.title,
+                pros: req.body.pros,
+                cons: req.body.cons
+            },
+            function (err, list) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.json(list);
+                }
             }
-        });
+        );
     });
+
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
@@ -80,7 +80,9 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
     }));
 
+
     // TODO route to handle list delete (app.delete)
+
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {

@@ -20,10 +20,10 @@
         $scope.data = Data;
 
         $http.get('/api/list/' + $routeParams.listid).then(function (res) {
-            $scope.title = res.data[0].title;
-            $scope.pros = res.data[0].pros;
-            $scope.cons = res.data[0].cons;
-            $scope._id = res.data[0]._id;
+            $scope.title = res.data.title;
+            $scope.pros = res.data.pros;
+            $scope.cons = res.data.cons;
+            $scope._id = res.data._id;
         });
 
         $scope.updateList = function () {
