@@ -23,8 +23,12 @@ html(ng-app="ProsVCons")
                         li(ng-class="{active: $route.current.activeTab == 'about'}")
                             a(href="/about") About
                     #settings.pull-right
-                        button.btn-sm.btn-primary(data-toggle="modal" data-target="#loginModal")
-                            | Login
+                        if data.isLoggedIn
+                            button.btn-sm.btn-primary(data-toggle="modal" data-target="#loginModal")
+                                | Login
+                        else
+                            button.btn-sm.btn-primary
+                                | Logout
                     ul.nav.navbar-nav.navbar-right
                         li.dropdown
                             a.dropdown-toggle(data-toggle="dropdown", href="javascript: void(0);")

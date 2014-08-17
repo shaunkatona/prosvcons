@@ -86,7 +86,8 @@ module.exports = function(app, passport) {
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {
-        res.render('index');
+        console.log("here:", req.isAuthenticated());
+        res.render('index', {data: {isLoggedIn: req.isAuthenticated()}});
     });
 
     app.get('/partials/:name', function (req, res) {
