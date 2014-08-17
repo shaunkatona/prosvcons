@@ -25,5 +25,9 @@
         $scope.go = function (path) {
             $location.path(path);
         };
+
+        $scope.logout = function () {
+            window.location = "/logout";
+        }
     }]);
 })();

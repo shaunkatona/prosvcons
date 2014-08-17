@@ -13,9 +13,9 @@ To do
 - email already exists message
 - add createDate and lastLoginDate to user.js
     - update those when logging in and signing up
-- add a createDate to lists
 - add a userID to lists
-
+- public users can't hack URL to view/edit/update anything
+- only correct users can hack URL to view/edit/update anything
 
 - For MVP:
     - User Auth:

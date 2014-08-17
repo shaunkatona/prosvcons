@@ -86,24 +86,21 @@ module.exports = function(app, passport) {
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {
-        console.log("here:", req.isAuthenticated());
-        res.render('index', {data: {isLoggedIn: req.isAuthenticated()}});
+        console.log("isLoggedIn:", req.isAuthenticated());
+        res.render('layout', {isLoggedIn: req.isAuthenticated()});
     });
 
     app.get('/partials/:name', function (req, res) {
         res.render('partials/'+ req.params.name);
     });
 
-    // route to handle all angular requests
-    app.get('*', function(req, res) {
-        res.render('index');
-    });
-
-    // =====================================
-    // LOGOUT ==============================
-    // =====================================
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+
+    // route to handle all angular requests
+    app.get('*', function(req, res) {
+        res.render('layout');
     });
 };

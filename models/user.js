@@ -5,7 +5,7 @@ var userSchema = mongoose.Schema({
     local : {
         email : String,
         password : String,
-        createDate: Date,
+        insertDate: Date,
         lastLoginDate: Date
     }
 });
