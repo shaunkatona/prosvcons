@@ -12,20 +12,19 @@ To do
 - For MVP:
     - User Auth:
         - LocalAuth - done
-        - guest lists - done
+        - guest lists
             - viewable by all - done
-            - editable by all - done
-            - deletable by none - done
-            - share with anyone via the URL - done
+            - editable by all
+            - deletable by none
         - user lists
             - public lists
-                - viewable by all
-                - editable by only the user
-                - deletable by only the user
+                - viewable by all - done
+                - editable by only the creator
+                - deletable by only the creator
             - private lists
-                - viewable by only the user
-                - editable by only the user
-                - deletable by only the user
+                - viewable by only the creator - done
+                - editable by only the creator
+                - deletable by only the creator
         - login errors
         - signup errors
 
