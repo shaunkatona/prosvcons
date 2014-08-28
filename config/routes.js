@@ -3,16 +3,45 @@ module.exports = function(app, passport) {
     var mongoose = require('mongoose');
 
     app.get('/api/list/:id', function(req, res) {
+
         List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now}, function(err, list) {
+
             // if there are any errors, return the error before anything else
             if (err || !list) {
                 console.log(err);
 
                 list = [];
+            } else {
+                // if it's not an authenticated list, anyone can view it
+                if (list.userID === "__public__") {
+                    // no op
+                } else { // if it's an authenticated list
+                    // if it's a private list
+                    if (list.isPrivate) {
+                        if (req.isAuthenticated()) {
+                            // then only the authenticated creator can view it
+                            if (list.userID === req.user._id) {
+                                // no op
+                            } else {
+                                list = [];
+                                res.json(500, {error: true});
+                                return;
+                            }
+                        } else {
+                            list = [];
+                            res.json(500, {error: true});
+                            return;
+                        }
+                    } else { // if it's a public list then anyone can view it
+                        // no op
+                    }
+                }
             }
 
             res.json(list);
+
         });
+
     });
 
     app.get('/api/lists', function(req, res) {

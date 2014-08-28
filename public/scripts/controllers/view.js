@@ -1,5 +1,5 @@
 (function() {
-    angular.module('ProsVCons.controllers').controller('ViewCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    angular.module('ProsVCons.controllers').controller('ViewCtrl', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
         $scope.showWeights = false;
         $scope.pros = [];
         $scope.cons = [];
@@ -12,6 +12,8 @@
             $scope.pros = res.data.pros;
             $scope.cons = res.data.cons;
             $scope.isPrivate = res.data.isPrivate;
+        }, function (res) {
+            $location.url('/');
         });
 
         $scope.getProsWeightCount = function () {
