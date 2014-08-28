@@ -22,6 +22,10 @@
             label
                 input(type="checkbox", ng-model="showWeights")
                 | Show Weights
+            if isLoggedIn
+                label
+                    input(type="checkbox", ng-model="isPrivate")
+                    | Private
 .row.prosAndCons
     #pros.col-sm-5.panel
         form(name="proForm", ng-submit="proForm.$valid && savePro()" novalidate)

@@ -2,10 +2,6 @@ module.exports = function(app, passport) {
     var List = require('../models/list');
     var mongoose = require('mongoose');
 
-    // server routes ===========================================================
-    // handle things like api calls
-    // authentication routes
-
     app.get('/api/list/:id', function(req, res) {
         List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now}, function(err, list) {
             // if there are any errors, return the error before anything else
@@ -21,7 +17,7 @@ module.exports = function(app, passport) {
 
     app.get('/api/lists', function(req, res) {
         if (req.isAuthenticated()) {
-            List.find({_id: req.user._id}, function (err, lists) {
+            List.find({userID: req.user._id}, function (err, lists) {
                 if (err || !lists) {
                     console.log(err);
 
@@ -50,6 +46,7 @@ module.exports = function(app, passport) {
         newList.pros = req.body.pros;
         newList.cons = req.body.cons;
         newList.insertDate = Date.now();
+        newList.isPrivate = req.body.isPrivate;
 
         if (req.isAuthenticated()) {
             newList.userID = req.user._id;
@@ -70,7 +67,8 @@ module.exports = function(app, passport) {
             {
                 title: req.body.title,
                 pros: req.body.pros,
-                cons: req.body.cons
+                cons: req.body.cons,
+                isPrivate: req.body.isPrivate
             },
             function (err, list) {
                 if (err) {
@@ -98,16 +96,13 @@ module.exports = function(app, passport) {
     }));
 
 
-    // TODO route to handle list delete (app.delete)
-
-
     // frontend routes =========================================================
     app.get('/', function(req, res) {
         res.render('layout', {isLoggedIn: req.isAuthenticated()});
     });
 
     app.get('/partials/:name', function (req, res) {
-        res.render('partials/'+ req.params.name);
+        res.render('partials/'+ req.params.name, {isLoggedIn: req.isAuthenticated()});
     });
 
     app.get('/logout', function(req, res) {

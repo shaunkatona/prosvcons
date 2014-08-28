@@ -18,6 +18,7 @@
         $scope.showTitleErrorMsg = false;
         $scope.showEmptyErrorMsg = false;
         $scope.data = Data;
+        $scope.isPrivate = true;
 
         $scope.saveList = function () {
             var canSave = true;

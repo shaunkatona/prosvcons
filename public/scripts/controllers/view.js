@@ -5,11 +5,13 @@
         $scope.cons = [];
         $scope.title = "";
         $scope._id = $routeParams.listid;
+        $scope.isPrivate = false;
 
         $http.get('/api/list/' + $scope._id).then(function (res) {
             $scope.title = res.data.title;
             $scope.pros = res.data.pros;
             $scope.cons = res.data.cons;
+            $scope.isPrivate = res.data.isPrivate;
         });
 
         $scope.getProsWeightCount = function () {

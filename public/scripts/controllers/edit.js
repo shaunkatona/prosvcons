@@ -14,6 +14,7 @@
         $scope.titleInputVisible = false;
         $scope.DEFAULT_TITLE = "Add a title...";
         $scope.title = "";
+        $scope.isPrivate = false;
         $scope.prevTitle = $scope.title;
         $scope.showTitleErrorMsg = false;
         $scope.showEmptyErrorMsg = false;
@@ -24,6 +25,7 @@
             $scope.pros = res.data.pros;
             $scope.cons = res.data.cons;
             $scope._id = res.data._id;
+            $scope.isPrivate = res.data.isPrivate;
         });
 
         $scope.updateList = function () {
@@ -46,7 +48,8 @@
                     _id: $routeParams.listid,
                     title: $scope.title,
                     pros: $scope.pros,
-                    cons: $scope.cons
+                    cons: $scope.cons,
+                    isPrivate: $scope.isPrivate
                 };
 
                 Data.updateList(list).success(function (res) {

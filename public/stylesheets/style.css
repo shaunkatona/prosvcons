@@ -74,6 +74,9 @@ body #settings button {
   margin-top: 10px;
   margin-left: 25px;
 }
+body .checkbox label {
+  margin-right: 50px;
+}
 @media (min-width: 980px) {
   body div.alert {
     font-size: 20px;

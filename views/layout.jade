@@ -45,12 +45,12 @@ html(ng-app="ProsVCons")
                                         a(href="/view/{{list._id}}") {{list.title}}
                                     li.divider
                                     li.dropdown-header
-                                        | Private - not real
-                                        span.badge 2
-                                        li
-                                            a(href="javascript: void(0);") List #4
-                                        li
-                                            a(href="javascript: void(0);") List #5
+                                        | Private
+                                        span.badge {{data.lists.length}}
+                                    li
+                                        a(href="javascript: void(0);") List #4
+                                    li
+                                        a(href="javascript: void(0);") List #5
 
         .container(role="main")
             .jumbotron.clearfix

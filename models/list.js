@@ -9,7 +9,8 @@ var listSchema = mongoose.Schema({
         {description: String, weight: Number}
     ],
     insertDate: Date,
-    userID: {type: String, default: "__public__"}
+    userID: {type: String, default: "__public__"},
+    isPrivate: {type: Boolean, default: true}
 });
 
 // create the model for users and expose it to our app

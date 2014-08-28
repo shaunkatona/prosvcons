@@ -9,6 +9,11 @@
             label
                 input(type="checkbox", ng-model="showWeights")
                 | Show Weights
+            if isLoggedIn
+                label
+                    input(type="checkbox", ng-model="isPrivate" disabled)
+                    | Private
+
 .row.prosAndCons
     #pros.col-sm-5.panel
         table.table
