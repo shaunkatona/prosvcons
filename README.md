@@ -13,17 +13,23 @@ To do
     - User Auth:
         - guest lists
             - viewable by all - DONE
-            - editable by all
+            - editable by all - DONE
+            - always show edit button
             - deletable by none
+            - never show delete button
         - user lists
             - public lists
                 - viewable by all - DONE
-                - editable by only the creator
+                - editable by only the creator - DONE
+                - only show edit button to creator
                 - deletable by only the creator
+                - only show delete button to creator
             - private lists
                 - viewable by only the creator - DONE
-                - editable by only the creator
+                - editable by only the creator - DONE
+                - only show edit button to creator
                 - deletable by only the creator
+                - only show delete button to creator
         - login errors
         - signup errors
 

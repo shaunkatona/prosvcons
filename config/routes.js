@@ -24,12 +24,12 @@ module.exports = function(app, passport) {
                                 // no op
                             } else {
                                 list = [];
-                                res.json(500, {error: true});
+                                res.json(401, {error: true});
                                 return;
                             }
                         } else {
                             list = [];
-                            res.json(500, {error: true});
+                            res.json(401, {error: true});
                             return;
                         }
                     } else { // if it's a public list then anyone can view it
@@ -47,17 +47,6 @@ module.exports = function(app, passport) {
     app.get('/api/lists', function(req, res) {
         if (req.isAuthenticated()) {
             List.find({userID: req.user._id}, function (err, lists) {
-                if (err || !lists) {
-                    console.log(err);
-
-                    lists = [];
-                }
-
-                res.json(lists);
-            });
-        } else {
-
-            List.find(function (err, lists) {
                 if (err || !lists) {
                     console.log(err);
 
@@ -91,22 +80,43 @@ module.exports = function(app, passport) {
     });
 
     app.post('/api/update', function (req, res) {
-        List.update(
-            {_id: req.body._id},
-            {
-                title: req.body.title,
-                pros: req.body.pros,
-                cons: req.body.cons,
-                isPrivate: req.body.isPrivate
-            },
-            function (err, list) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    res.json(list);
+        var canUpdate = false;
+
+        // first we have to get the current list's information from the db
+        List.find({_id: req.body._id}, function (err, list) {
+            // if we're authenticated
+            if (req.isAuthenticated()) {
+                // make sure only the list author can update the list
+                if (req.user._id === list.userID) {
+                    canUpdate = true;
+                } else if (list.userID === "__global__") { // or if the list is a guest list, anyone can update that too
+                    canUpdate = true;
+                }
+            } else { // if we aren't authenticated, then you can only update a guest list
+                if (list.userID === "__global__") {
+                    canUpdate = true;
                 }
             }
-        );
+
+            if (canUpdate) {
+                List.update(
+                    {_id: req.body._id},
+                    {
+                        title: req.body.title,
+                        pros: req.body.pros,
+                        cons: req.body.cons,
+                        isPrivate: req.body.isPrivate
+                    },
+                    function (err, list) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            res.json(list);
+                        }
+                    }
+                );
+            }
+        });
     });
 
 
@@ -127,11 +137,11 @@ module.exports = function(app, passport) {
 
     // frontend routes =========================================================
     app.get('/', function(req, res) {
-        res.render('layout', {isLoggedIn: req.isAuthenticated()});
+        res.render('layout', {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated()});
     });
 
     app.get('/partials/:name', function (req, res) {
-        res.render('partials/'+ req.params.name, {isLoggedIn: req.isAuthenticated()});
+        res.render('partials/'+ req.params.name, {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated()});
     });
 
     app.get('/logout', function(req, res) {
@@ -143,4 +153,5 @@ module.exports = function(app, passport) {
     app.get('*', function(req, res) {
         res.render('layout');
     });
+
 };
