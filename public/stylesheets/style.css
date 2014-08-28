@@ -61,9 +61,6 @@ body .prosAndCons .glyphicon-trash {
 body .ng-dirty.ng-invalid {
   border-color: #f00;
 }
-body p em strong {
-  color: #ff69b4;
-}
 body span.email {
   color: #ffa500;
 }
