@@ -40,17 +40,15 @@ html(ng-app="ProsVCons")
                                 ul.dropdown-menu(role="menu")
                                     li.dropdown-header
                                         | Public
-                                        span.badge {{data.lists.length}}
-                                    li(ng-repeat="list in data.lists")
-                                        a(href="/view/{{list._id}}") {{list.title}}
+                                        span.badge {{publicLists.length}}
+                                    li(ng-repeat="publicList in publicLists = (data.lists | public)")
+                                        a(href="/view/{{publicList._id}}") {{publicList.title}}
                                     li.divider
                                     li.dropdown-header
                                         | Private
-                                        span.badge {{data.lists.length}}
-                                    li
-                                        a(href="javascript: void(0);") List #4
-                                    li
-                                        a(href="javascript: void(0);") List #5
+                                        span.badge {{privateLists.length}}
+                                    li(ng-repeat="privateList in privateLists = (data.lists | private)")
+                                        a(href="/view/{{privateList._id}}") {{privateList.title}}
 
         .container(role="main")
             .jumbotron.clearfix
@@ -72,3 +70,5 @@ html(ng-app="ProsVCons")
         script(type="text/javascript", src="/scripts/controllers/edit.js")
         script(type="text/javascript", src="/scripts/services/Data.js")
         script(type="text/javascript", src="/scripts/directives/loginModal.js")
+        script(type="text/javascript", src="/scripts/filters/publicLists.js")
+        script(type="text/javascript", src="/scripts/filters/privateLists.js")
