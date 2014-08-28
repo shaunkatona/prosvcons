@@ -11,18 +11,17 @@ To do
 -----
 - For MVP:
     - User Auth:
-        - LocalAuth - done
         - guest lists
-            - viewable by all - done
+            - viewable by all - DONE
             - editable by all
             - deletable by none
         - user lists
             - public lists
-                - viewable by all - done
+                - viewable by all - DONE
                 - editable by only the creator
                 - deletable by only the creator
             - private lists
-                - viewable by only the creator - done
+                - viewable by only the creator - DONE
                 - editable by only the creator
                 - deletable by only the creator
         - login errors
