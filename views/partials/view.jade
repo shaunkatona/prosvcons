@@ -47,7 +47,7 @@
                 tr
                     th {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
                     th.text-right(ng-show="showWeights") {{getConsWeightCount()}}
-.row
+.row(ng-init="userID = '#{userID}'")
     .col-sm-12.text-center
-        button.btn-lg.btn-primary(ng-click="go('/edit/' + _id)")
+        button.btn-lg.btn-primary(ng-click="go('/edit/' + _id)" ng-if="(userID == authorID) || (authorID == '__public__')")
             | Edit

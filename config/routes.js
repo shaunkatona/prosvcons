@@ -13,14 +13,14 @@ module.exports = function(app, passport) {
                 list = [];
             } else {
                 // if it's not an authenticated list, anyone can view it
-                if (list.userID === "__public__") {
+                if (list.userID == "__public__") {
                     // no op
                 } else { // if it's an authenticated list
                     // if it's a private list
                     if (list.isPrivate) {
                         if (req.isAuthenticated()) {
                             // then only the authenticated creator can view it
-                            if (list.userID === req.user._id) {
+                            if (list.userID == req.user._id) {
                                 // no op
                             } else {
                                 list = [];
@@ -58,6 +58,30 @@ module.exports = function(app, passport) {
         }
     });
 
+    app.post('/api/delete', function (req, res) {
+        var canDelete = false;
+
+        // first we have to get the current list's information from the db
+        List.find({_id: req.body._id}, function (err, list) {
+            // only the list author can delete a list.  guest lists can never be deleted
+            if (req.isAuthenticated()){
+                if (req.user._id == list.userID) {
+                    canDelete = true;
+                }
+            }
+
+            if (canDelete) {
+                list.remove(
+                    function (err, list) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    }
+                );
+            }
+        });
+    });
+
     app.post('/api/save', function (req, res) {
         var newList = new List();
         newList.title = req.body.title;
@@ -87,13 +111,13 @@ module.exports = function(app, passport) {
             // if we're authenticated
             if (req.isAuthenticated()) {
                 // make sure only the list author can update the list
-                if (req.user._id === list.userID) {
+                if (req.user._id == list.userID) {
                     canUpdate = true;
-                } else if (list.userID === "__global__") { // or if the list is a guest list, anyone can update that too
+                } else if (list.userID == "__global__") { // or if the list is a guest list, anyone can update that too
                     canUpdate = true;
                 }
             } else { // if we aren't authenticated, then you can only update a guest list
-                if (list.userID === "__global__") {
+                if (list.userID == "__global__") {
                     canUpdate = true;
                 }
             }

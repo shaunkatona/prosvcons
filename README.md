@@ -14,21 +14,20 @@ To do
         - guest lists
             - viewable by all - DONE
             - editable by all - DONE
-            - always show edit button
-            - deletable by none
+            - always show edit button - DONE
+            - deletable by none - DONE
             - never show delete button
         - user lists
             - public lists
                 - viewable by all - DONE
                 - editable by only the creator - DONE
-                - only show edit button to creator
-                - deletable by only the creator
+                - only show edit button to creator - DONE
+                - deletable by only the creator - DONE
                 - only show delete button to creator
             - private lists
                 - viewable by only the creator - DONE
                 - editable by only the creator - DONE
-                - only show edit button to creator
-                - deletable by only the creator
+                - deletable by only the creator - DONE
                 - only show delete button to creator
         - login errors
         - signup errors
