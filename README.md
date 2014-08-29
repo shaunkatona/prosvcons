@@ -9,11 +9,6 @@ stack + Stylus, Jade and Bootstrap
 
 To do
 -----
-- For MVP:
-    - User Auth:
-        - login errors
-        - signup errors
-
 - Further enhancements:
     - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
     - Refactor to have zero jquery
@@ -24,3 +19,4 @@ To do
     - user lists
     	- public lists
     		- "allow others to edit" toggle
+    - clean up login/signup stuff

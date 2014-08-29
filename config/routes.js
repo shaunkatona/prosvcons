@@ -161,14 +161,13 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
     }));
 
-
     // frontend routes =========================================================
     app.get('/', function(req, res) {
-        res.render('layout', {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated()});
+        res.render('layout', {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated(), loginMessage: req.flash('loginMessage'), signupMessage: req.flash('signupMessage')});
     });
 
     app.get('/partials/:name', function (req, res) {
-        res.render('partials/'+ req.params.name, {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated()});
+        res.render('partials/'+ req.params.name, {userID: (req.user && req.user._id) || "__public__", isLoggedIn: req.isAuthenticated(), loginMessage: req.flash('loginMessage'), signupMessage: req.flash('signupMessage')});
     });
 
     app.get('/logout', function(req, res) {

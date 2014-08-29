@@ -10,6 +10,7 @@
                     h4.modal-title#myModalLabel.text-center
                         | Login
                 .modal-body
+                    .alert.alert-danger(ng-if="loginMessage.length > 0") {{loginMessage}}
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")
@@ -34,6 +35,7 @@
                     h4.modal-title#myModalLabel.text-center
                         | Sign Up
                 .modal-body
+                    .alert.alert-danger(ng-if="signupMessage.length > 0") {{signupMessage}}
                     .form-group
                         label(for="email") Email:
                         input.form-control(type="text" name="email" id="email")

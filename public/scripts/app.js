@@ -16,7 +16,6 @@
     angular.module('ProsVCons.controllers').controller('AppCtrl', ['$scope', '$http', '$route', '$location', 'Data', function ($scope, $http, $route, $location, Data) {
         $scope.$route = $route;
         $scope.data = Data;
-        $scope.showLoginForm = true;
 
         Data.getLists().success(function (res) {
             $scope.data.lists = res;

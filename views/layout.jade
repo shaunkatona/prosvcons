@@ -58,7 +58,7 @@ html(ng-app="ProsVCons")
                 .pull-left
                     .glyphicon.glyphicon-thumbs-up
                     .glyphicon.glyphicon-thumbs-down
-            <login-modal></login-modal>
+            login-modal(login-message="#{loginMessage}" signup-message="#{signupMessage}")
             div(ng-view)
         script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js")
         script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.js")
