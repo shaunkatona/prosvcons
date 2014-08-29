@@ -65,13 +65,13 @@ module.exports = function(app, passport) {
         List.find({_id: req.body._id}, function (err, list) {
             // only the list author can delete a list.  guest lists can never be deleted
             if (req.isAuthenticated()){
-                if (req.user._id == list.userID) {
+                if (req.user._id == list[0].userID) {
                     canDelete = true;
                 }
             }
 
             if (canDelete) {
-                list.remove(
+                list[0].remove(
                     function (err, list) {
                         if (err) {
                             console.log(err);
@@ -79,6 +79,9 @@ module.exports = function(app, passport) {
                     }
                 );
             }
+
+            // after deleting a list go back to the home page
+            res.redirect('/');
         });
     });
 

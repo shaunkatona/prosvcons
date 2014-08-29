@@ -10,6 +10,9 @@
             },
             updateList: function (list) {
                 return $http.post('/api/update', list);
+            },
+            deleteList: function (list) {
+                return $http.post('/api/delete', list);
             }
         };
     }]);

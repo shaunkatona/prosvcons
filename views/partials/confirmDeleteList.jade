@@ -1,0 +1,20 @@
+#confirmDeleteListModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="confirmDeleteListLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            form(novalidate role="form" action="/api/delete" method="POST")
+                .modal-header
+                    button(type="button" class="close" data-dismiss="modal")
+                        span(aria-hidden="true") &times;
+                        span.sr-only
+                            | Close
+                    h4.modal-title.text-center
+                        | Delete List
+                .modal-body
+                    p
+                        | Are you sure?  This cannot be undone.
+                .modal-footer
+                    input(type="hidden" name="_id" value="{{listid}}")
+                    button(type="button" class="btn btn-default" data-dismiss="modal")
+                        | Cancel
+                    button(type="submit" class="btn btn-danger")
+                        | Delete
