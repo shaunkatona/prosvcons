@@ -13,6 +13,7 @@
     var configDB = require('./config/database');
     var mongoose = require('mongoose');
     var compression = require('compression');
+    var minify = require('minify');
 
 
     // configuration ===============================================================
@@ -21,6 +22,14 @@
     require('./config/passport')(passport); // pass passport for configuration
 
     app.set('view engine', 'jade');
+
+    app.use(minify({
+        dir: __dirname
+    }));
+    app.use(compression({
+        threshold: 0
+    }));
+
     app.use(stylus.middleware(
         {
             src: __dirname + '/stylus/',
@@ -42,7 +51,6 @@
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
-    app.use(compression());
 
     require('./config/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
