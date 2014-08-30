@@ -4,7 +4,7 @@ module.exports = function(app, passport) {
 
     app.get('/api/list/:id', function(req, res) {
 
-        List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now}, function(err, list) {
+        List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now()}, function(err, list) {
 
             // if there are any errors, return the error before anything else
             if (err || !list) {
