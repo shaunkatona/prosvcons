@@ -1,21 +1,22 @@
 {
   "name": "prosvcons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "prosvcons =========",
   "main": "server.js",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.4.3",
+    "compression": "^1.0.11",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.3.2",
     "express": "^4.5.1",
-    "express-session": "^1.7.5",
+    "express-session": "^1.7.6",
     "jade": "^1.3.1",
     "jitsu": "^0.13.18",
     "mongojs": "^0.13.0",
+    "mongoose": "^3.8.15",
     "nib": "^1.0.3",
-    "mongoose": "^3.8.14",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0",
     "stylus": "^0.47.1"
@@ -29,7 +30,7 @@
     "type": "git",
     "url": "https://github.com/shaunkatona/prosvcons.git"
   },
-  "author": "",
+  "author": "Shaun Katona",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shaunkatona/prosvcons/issues"

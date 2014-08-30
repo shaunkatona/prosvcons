@@ -12,6 +12,8 @@
     var app = express();
     var configDB = require('./config/database');
     var mongoose = require('mongoose');
+    var compression = require('compression');
+
 
     // configuration ===============================================================
     mongoose.connect(configDB.url); // connect to our database
@@ -40,6 +42,7 @@
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
+    app.use(compression());
 
     require('./config/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
