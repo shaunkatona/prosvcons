@@ -116,11 +116,11 @@ module.exports = function(app, passport) {
                 // make sure only the list author can update the list
                 if (req.user._id == list.userID) {
                     canUpdate = true;
-                } else if (list.userID == "__global__") { // or if the list is a guest list, anyone can update that too
+                } else if (list.userID == "__public__") { // or if the list is a guest list, anyone can update that too
                     canUpdate = true;
                 }
             } else { // if we aren't authenticated, then you can only update a guest list
-                if (list.userID == "__global__") {
+                if (list.userID == "__public__") {
                     canUpdate = true;
                 }
             }

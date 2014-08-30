@@ -10,7 +10,8 @@
             link: function (scope, elem, attrs) {
                 scope.showLoginForm = true;
 
-                if (attrs.loginMessage.length > 0 || attrs.signupMessage.length > 0) {
+                if ((attrs.loginMessage != "undefined" && attrs.loginMessage.length > 0) ||
+                    (attrs.signupMessage != "undefined" && attrs.signupMessage.length > 0)) {
                     if (attrs.signupMessage.length > 0) {
                         scope.showLoginForm = false;
                     }
