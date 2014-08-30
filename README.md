@@ -14,9 +14,14 @@ To do
     - Refactor to have zero jquery
     - FacebookAuth
 	- GoogleAuth
-	- add error & loading indicator for Saving
-    - add error & loading indicator for Updating
+	- add error & loading & saved indicator for Saving
+    - add error & loading & saved indicator for Updating
     - user lists
     	- public lists
     		- "allow others to edit" toggle
     - clean up login/signup stuff
+    
+    Casey:
+    	From a view page, some sort of "create my own list" button
+    Ryan:
+    	A way to edit a pro/con item after it's been added
