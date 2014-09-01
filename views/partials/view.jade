@@ -51,6 +51,6 @@
     .col-sm-12.text-center
         button.btn-lg.btn-primary(ng-click="go('/edit/' + _id)" ng-if="(userID == authorID) || (authorID == '__public__')")
             | Edit
-        button.btn-lg.btn-primary(ng-if="(userID == authorID) && (authorID != '__public__')" data-toggle="modal" data-target="#confirmDeleteListModal")
+        button.btn-lg.btn-warning(ng-if="(userID == authorID) && (authorID != '__public__')" data-toggle="modal" data-target="#confirmDeleteListModal")
             | Delete
 confirm-delete-list-modal(listid="{{_id}}")

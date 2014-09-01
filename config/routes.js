@@ -2,6 +2,11 @@ module.exports = function(app, passport) {
     var List = require('../models/list');
     var mongoose = require('mongoose');
 
+    app.get('*', function(req, res, next) {
+        if (req.headers.host.match(/^www/) !== null ) res.redirect('http://' + req.headers.host.replace(/^www\./, '') + req.url, 301);
+        else next();
+    });
+
     app.get('/api/list/:id', function(req, res) {
 
         List.findByIdAndUpdate(req.params.id, {lastReadDate: Date.now()}, function(err, list) {

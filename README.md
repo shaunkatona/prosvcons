@@ -10,7 +10,8 @@ stack + Stylus, Jade and Bootstrap
 To do
 -----
 - Further enhancements:
-    - Refactor the Angular controller to be more modular with directives.  Duplicate code for pros and cons is no good.
+	- titles for view/edit pages
+    - Refactor the Angular controller to be more modular with directives.  Too much duplicate code.
     - Refactor to have zero jquery
     - FacebookAuth
 	- GoogleAuth
@@ -20,6 +21,9 @@ To do
     	- public lists
     		- "allow others to edit" toggle
     - clean up login/signup stuff
+    - a SHARE button?
+    - admin views
+    - on blur add the pro/con
     
     Casey:
     	From a view page, some sort of "create my own list" button
