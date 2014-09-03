@@ -37,8 +37,8 @@
             table.table
                 thead
                     tr
-                        th Pros
-                        th.text-right(ng-show="showWeights") Weight
+                        th {{pros.length}} {{pros.length == 1 ? "Pro" : "Pros"}}
+                        th.text-right(ng-show="showWeights") Weight - {{getProsWeightCount()}}
                 tbody
                     tr
                         th
@@ -54,11 +54,6 @@
                         th
                             a(href="javascript: void(0);", ng-click="removePro($index)")
                                 span.glyphicon.glyphicon-trash
-                tfoot
-                    tr
-                        th(colspan=1) {{pros.length}} {{pros.length == 1 ? "Pro" : "Pros"}}
-                        th.text-right(ng-show="showWeights") {{getProsWeightCount()}}
-                        th
 
     #cons.col-sm-5.col-sm-offset-2.panel
         form(name="conForm", ng-submit="conForm.$valid && saveCon()" novalidate)
@@ -67,8 +62,8 @@
             table.table
                 thead
                     tr
-                        th Cons
-                        th.text-right(ng-show="showWeights") Weight
+                        th {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
+                        th.text-right(ng-show="showWeights") Weight - {{getConsWeightCount()}}
                 tbody
                     tr
                         th
@@ -84,11 +79,7 @@
                         th
                             a(href="javascript: void(0);" ng-click="removeCon($index)")
                                 span.glyphicon.glyphicon-trash
-                tfoot
-                    tr
-                        th(colspan=1) {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
-                        th.text-right(ng-show="showWeights") {{getConsWeightCount()}}
-                        th
+
 .row
     .col-sm-offset-3.col-sm-6
         .alert.alert-danger.alert-dismissable.text-center(ng-show="showEmptyErrorMsg", role="alert")

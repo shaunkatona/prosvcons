@@ -19,34 +19,28 @@
         table.table
             thead
                 tr
-                    th Pros
-                    th.text-right(ng-show="showWeights") Weight
+                    th {{pros.length}} {{pros.length == 1 ? "Pro" : "Pros"}}
+                    th.text-right(ng-show="showWeights") Weight - {{getProsWeightCount()}}
             tbody
                 tr(ng-repeat="pro in pros")
                     th
                         | {{pro.description}}
                     th.text-right(ng-show="showWeights")
                         | {{pro.weight}}
-            tfoot
-                tr
-                    th {{pros.length}} {{pros.length == 1 ? "Pro" : "Pros"}}
-                    th.text-right(ng-show="showWeights") {{getProsWeightCount()}}
+
     #cons.col-sm-5.col-sm-offset-2.panel
         table.table
             thead
                 tr
-                    th Cons
-                    th.text-right(ng-show="showWeights") Weight
+                    th {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
+                    th.text-right(ng-show="showWeights") Weight - {{getConsWeightCount()}}
             tbody
                 tr(ng-repeat="con in cons")
                     th
                         | {{con.description}}
                     th.text-right(ng-show="showWeights")
                         | {{con.weight}}
-            tfoot
-                tr
-                    th {{cons.length}} {{cons.length == 1 ? "Con" : "Cons"}}
-                    th.text-right(ng-show="showWeights") {{getConsWeightCount()}}
+
 .row(ng-init="userID = '#{userID}'")
     .col-sm-12.text-center
         button.btn-lg.btn-primary(ng-click="go('/edit/' + _id)" ng-if="(userID == authorID) || (authorID == '__public__')")

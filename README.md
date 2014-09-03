@@ -24,6 +24,7 @@ To do
     - a SHARE button?
     - admin views
     - on blur add the pro/con
+    - forgot password functionality
     
     Casey:
     	From a view page, some sort of "create my own list" button
